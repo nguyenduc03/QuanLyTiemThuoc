@@ -80,7 +80,7 @@ namespace QLTT.Controls.User
                 CurrentBTN.IconColor = Color.Gainsboro;
             }
         }
-
+           
         private void BTNTrangChu_Click(object sender, EventArgs e)
         {
             OpenChildForm(new TrangChu());
