@@ -22,7 +22,7 @@ namespace QLTT.Controls.User
         {
             InitializeComponent();
             OpenChildForm(new TrangChu());
-            ShowCurrentBTN(BTNTrangChu, ClassColor.color1);
+            ShowCurrentBTN(btnTrangChu, ClassColor.color1);
 
         }
 
@@ -45,8 +45,8 @@ namespace QLTT.Controls.User
             ChildForm.TopLevel = false;
             ChildForm.FormBorderStyle = FormBorderStyle.None;
             ChildForm.Dock = DockStyle.Fill;
-            paneContent.Controls.Add(ChildForm);
-            paneContent.Tag = ChildForm;
+            pnContent.Controls.Add(ChildForm);
+            pnContent.Tag = ChildForm;
             ChildForm.BringToFront();
             ChildForm.Show();
             LabellTiTle.Text = ChildForm.Text;

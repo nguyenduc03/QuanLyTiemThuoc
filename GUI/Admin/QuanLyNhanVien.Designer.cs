@@ -34,9 +34,9 @@ namespace QLTT.Controls
             this.btnTimKiem = new FontAwesome.Sharp.IconButton();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panelChucNang = new System.Windows.Forms.Panel();
-            this.CheckBoxQuyen = new System.Windows.Forms.CheckBox();
+            this.cbQuyenADMIN = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.DateNV = new System.Windows.Forms.DateTimePicker();
+            this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.txtMailNV = new System.Windows.Forms.TextBox();
@@ -119,9 +119,9 @@ namespace QLTT.Controls
             // 
             // panelChucNang
             // 
-            this.panelChucNang.Controls.Add(this.CheckBoxQuyen);
+            this.panelChucNang.Controls.Add(this.cbQuyenADMIN);
             this.panelChucNang.Controls.Add(this.label1);
-            this.panelChucNang.Controls.Add(this.DateNV);
+            this.panelChucNang.Controls.Add(this.dtpNgaySinh);
             this.panelChucNang.Controls.Add(this.panel5);
             this.panelChucNang.Controls.Add(this.label4);
             this.panelChucNang.Controls.Add(this.txtMailNV);
@@ -148,16 +148,16 @@ namespace QLTT.Controls
             this.panelChucNang.TabIndex = 3;
             this.panelChucNang.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChucNang_Paint);
             // 
-            // CheckBoxQuyen
+            // cbQuyenADMIN
             // 
-            this.CheckBoxQuyen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.CheckBoxQuyen.AutoSize = true;
-            this.CheckBoxQuyen.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckBoxQuyen.Location = new System.Drawing.Point(471, 174);
-            this.CheckBoxQuyen.Name = "CheckBoxQuyen";
-            this.CheckBoxQuyen.Size = new System.Drawing.Size(15, 14);
-            this.CheckBoxQuyen.TabIndex = 19;
-            this.CheckBoxQuyen.UseVisualStyleBackColor = true;
+            this.cbQuyenADMIN.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbQuyenADMIN.AutoSize = true;
+            this.cbQuyenADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbQuyenADMIN.Location = new System.Drawing.Point(471, 174);
+            this.cbQuyenADMIN.Name = "cbQuyenADMIN";
+            this.cbQuyenADMIN.Size = new System.Drawing.Size(15, 14);
+            this.cbQuyenADMIN.TabIndex = 19;
+            this.cbQuyenADMIN.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -170,15 +170,15 @@ namespace QLTT.Controls
             this.label1.TabIndex = 18;
             this.label1.Text = "Cấp Quyền Admin :";
             // 
-            // DateNV
+            // dtpNgaySinh
             // 
-            this.DateNV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.DateNV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateNV.Location = new System.Drawing.Point(400, 111);
-            this.DateNV.Name = "DateNV";
-            this.DateNV.Size = new System.Drawing.Size(146, 20);
-            this.DateNV.TabIndex = 4;
-            this.DateNV.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.dtpNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgaySinh.Location = new System.Drawing.Point(400, 111);
+            this.dtpNgaySinh.Name = "dtpNgaySinh";
+            this.dtpNgaySinh.Size = new System.Drawing.Size(146, 20);
+            this.dtpNgaySinh.TabIndex = 4;
+            this.dtpNgaySinh.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // panel5
             // 
@@ -530,8 +530,8 @@ namespace QLTT.Controls
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.Label labelTênNV;
-        private System.Windows.Forms.DateTimePicker DateNV;
-        private System.Windows.Forms.CheckBox CheckBoxQuyen;
+        private System.Windows.Forms.DateTimePicker dtpNgaySinh;
+        private System.Windows.Forms.CheckBox cbQuyenADMIN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelSapXep;
         private FontAwesome.Sharp.IconButton btnTimKiem;

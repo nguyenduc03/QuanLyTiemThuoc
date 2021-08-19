@@ -35,9 +35,9 @@ namespace QLTT.Common
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.textBoxMatKhau = new System.Windows.Forms.TextBox();
-            this.textBoxTenDN = new System.Windows.Forms.TextBox();
-            this.BTNDangNhap = new FontAwesome.Sharp.IconButton();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
+            this.txtTenDN = new System.Windows.Forms.TextBox();
+            this.btnDangNhap = new FontAwesome.Sharp.IconButton();
             this.labelDangNhap = new System.Windows.Forms.Label();
             this.ThongTinNSX = new System.Windows.Forms.Label();
             this.panelDangNhap.SuspendLayout();
@@ -54,9 +54,9 @@ namespace QLTT.Common
             this.panelDangNhap.Controls.Add(this.panel3);
             this.panelDangNhap.Controls.Add(this.panel2);
             this.panelDangNhap.Controls.Add(this.Logo);
-            this.panelDangNhap.Controls.Add(this.textBoxMatKhau);
-            this.panelDangNhap.Controls.Add(this.textBoxTenDN);
-            this.panelDangNhap.Controls.Add(this.BTNDangNhap);
+            this.panelDangNhap.Controls.Add(this.txtMatKhau);
+            this.panelDangNhap.Controls.Add(this.txtTenDN);
+            this.panelDangNhap.Controls.Add(this.btnDangNhap);
             this.panelDangNhap.Controls.Add(this.labelDangNhap);
             this.panelDangNhap.Location = new System.Drawing.Point(295, 65);
             this.panelDangNhap.Name = "panelDangNhap";
@@ -117,53 +117,53 @@ namespace QLTT.Common
             this.Logo.TabIndex = 6;
             this.Logo.TabStop = false;
             // 
-            // textBoxMatKhau
+            // txtMatKhau
             // 
-            this.textBoxMatKhau.BackColor = System.Drawing.Color.White;
-            this.textBoxMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxMatKhau.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxMatKhau.Location = new System.Drawing.Point(130, 258);
-            this.textBoxMatKhau.Multiline = true;
-            this.textBoxMatKhau.Name = "textBoxMatKhau";
-            this.textBoxMatKhau.PasswordChar = '*';
-            this.textBoxMatKhau.Size = new System.Drawing.Size(186, 24);
-            this.textBoxMatKhau.TabIndex = 5;
-            this.textBoxMatKhau.Text = "Mật khẩu";
+            this.txtMatKhau.BackColor = System.Drawing.Color.White;
+            this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatKhau.ForeColor = System.Drawing.Color.Gray;
+            this.txtMatKhau.Location = new System.Drawing.Point(130, 258);
+            this.txtMatKhau.Multiline = true;
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
+            this.txtMatKhau.Size = new System.Drawing.Size(186, 24);
+            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.Text = "Mật khẩu";
             // 
-            // textBoxTenDN
+            // txtTenDN
             // 
-            this.textBoxTenDN.BackColor = System.Drawing.Color.White;
-            this.textBoxTenDN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxTenDN.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTenDN.ForeColor = System.Drawing.Color.Gray;
-            this.textBoxTenDN.HideSelection = false;
-            this.textBoxTenDN.Location = new System.Drawing.Point(130, 198);
-            this.textBoxTenDN.Multiline = true;
-            this.textBoxTenDN.Name = "textBoxTenDN";
-            this.textBoxTenDN.Size = new System.Drawing.Size(186, 24);
-            this.textBoxTenDN.TabIndex = 4;
-            this.textBoxTenDN.Text = " Tên Đăng Nhập ";
-            this.textBoxTenDN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtTenDN.BackColor = System.Drawing.Color.White;
+            this.txtTenDN.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtTenDN.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenDN.ForeColor = System.Drawing.Color.Gray;
+            this.txtTenDN.HideSelection = false;
+            this.txtTenDN.Location = new System.Drawing.Point(130, 198);
+            this.txtTenDN.Multiline = true;
+            this.txtTenDN.Name = "txtTenDN";
+            this.txtTenDN.Size = new System.Drawing.Size(186, 24);
+            this.txtTenDN.TabIndex = 4;
+            this.txtTenDN.Text = " Tên Đăng Nhập ";
+            this.txtTenDN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // BTNDangNhap
+            // btnDangNhap
             // 
-            this.BTNDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BTNDangNhap.FlatAppearance.BorderSize = 0;
-            this.BTNDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTNDangNhap.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNDangNhap.ForeColor = System.Drawing.Color.White;
-            this.BTNDangNhap.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
-            this.BTNDangNhap.IconColor = System.Drawing.Color.White;
-            this.BTNDangNhap.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BTNDangNhap.IconSize = 40;
-            this.BTNDangNhap.Location = new System.Drawing.Point(122, 311);
-            this.BTNDangNhap.Name = "BTNDangNhap";
-            this.BTNDangNhap.Size = new System.Drawing.Size(169, 37);
-            this.BTNDangNhap.TabIndex = 3;
-            this.BTNDangNhap.Text = "Đăng Nhập";
-            this.BTNDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BTNDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnDangNhap.FlatAppearance.BorderSize = 0;
+            this.btnDangNhap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhap.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDangNhap.ForeColor = System.Drawing.Color.White;
+            this.btnDangNhap.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
+            this.btnDangNhap.IconColor = System.Drawing.Color.White;
+            this.btnDangNhap.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnDangNhap.IconSize = 40;
+            this.btnDangNhap.Location = new System.Drawing.Point(122, 311);
+            this.btnDangNhap.Name = "btnDangNhap";
+            this.btnDangNhap.Size = new System.Drawing.Size(169, 37);
+            this.btnDangNhap.TabIndex = 3;
+            this.btnDangNhap.Text = "Đăng Nhập";
+            this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDangNhap.UseVisualStyleBackColor = false;
             // 
             // labelDangNhap
             // 
@@ -221,9 +221,9 @@ namespace QLTT.Common
         #endregion
 
         private System.Windows.Forms.Panel panelDangNhap;
-        private System.Windows.Forms.TextBox textBoxMatKhau;
-        private System.Windows.Forms.TextBox textBoxTenDN;
-        private FontAwesome.Sharp.IconButton BTNDangNhap;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.TextBox txtTenDN;
+        private FontAwesome.Sharp.IconButton btnDangNhap;
         private System.Windows.Forms.Label labelDangNhap;
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.Panel panel3;

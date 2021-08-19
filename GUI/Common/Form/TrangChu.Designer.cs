@@ -32,8 +32,8 @@ namespace QLTT.Common
             this.panel1 = new System.Windows.Forms.Panel();
             this.Titel = new System.Windows.Forms.Label();
             this.ThongTinNSX = new System.Windows.Forms.Label();
-            this.Date = new System.Windows.Forms.Label();
-            this.Time = new System.Windows.Forms.Label();
+            this.lbDate = new System.Windows.Forms.Label();
+            this.lbTime = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -44,8 +44,8 @@ namespace QLTT.Common
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.Titel);
             this.panel1.Controls.Add(this.ThongTinNSX);
-            this.panel1.Controls.Add(this.Date);
-            this.panel1.Controls.Add(this.Time);
+            this.panel1.Controls.Add(this.lbDate);
+            this.panel1.Controls.Add(this.lbTime);
             this.panel1.Controls.Add(this.Logo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -79,29 +79,29 @@ namespace QLTT.Common
             this.ThongTinNSX.TabIndex = 3;
             this.ThongTinNSX.Text = "power by Gà Mờ Tập Code";
             // 
-            // Date
+            // lbDate
             // 
-            this.Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Date.AutoSize = true;
-            this.Date.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Date.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Date.Location = new System.Drawing.Point(570, 407);
-            this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(159, 30);
-            this.Date.TabIndex = 2;
-            this.Date.Text = "15/15/2021";
+            this.lbDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbDate.AutoSize = true;
+            this.lbDate.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDate.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbDate.Location = new System.Drawing.Point(570, 407);
+            this.lbDate.Name = "lbDate";
+            this.lbDate.Size = new System.Drawing.Size(159, 30);
+            this.lbDate.TabIndex = 2;
+            this.lbDate.Text = "15/15/2021";
             // 
-            // Time
+            // lbTime
             // 
-            this.Time.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.Time.AutoSize = true;
-            this.Time.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Time.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Time.Location = new System.Drawing.Point(617, 355);
-            this.Time.Name = "Time";
-            this.Time.Size = new System.Drawing.Size(86, 30);
-            this.Time.TabIndex = 1;
-            this.Time.Text = "20:20";
+            this.lbTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbTime.AutoSize = true;
+            this.lbTime.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
+            this.lbTime.Location = new System.Drawing.Point(617, 355);
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(86, 30);
+            this.lbTime.TabIndex = 1;
+            this.lbTime.Text = "20:20";
             // 
             // Logo
             // 
@@ -138,8 +138,8 @@ namespace QLTT.Common
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox Logo;
-        private System.Windows.Forms.Label Date;
-        private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Label lbDate;
+        private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label ThongTinNSX;
         private System.Windows.Forms.Label Titel;
     }

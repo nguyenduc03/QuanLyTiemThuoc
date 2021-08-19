@@ -50,71 +50,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\Class\ChangeBotton.cs" />
-    <Compile Include="Common\Class\ClassColor.cs" />
-    <Compile Include="Common\Form\DangNhap.cs">
+    <Compile Include="GUI\Common\Class\ChangeBotton.cs" />
+    <Compile Include="GUI\Common\Class\ClassColor.cs" />
+    <Compile Include="GUI\Common\Form\DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Common\Form\DangNhap.Designer.cs">
+    <Compile Include="GUI\Common\Form\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\Form\TrangChu.cs">
+    <Compile Include="GUI\Common\Form\TrangChu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Common\Form\TrangChu.Designer.cs">
+    <Compile Include="GUI\Common\Form\TrangChu.Designer.cs">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Admin\QuanLyNhanVien.cs">
+    <Compile Include="GUI\Admin\QuanLyNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\Admin\QuanLyNhanVien.Designer.cs">
+    <Compile Include="GUI\Admin\QuanLyNhanVien.Designer.cs">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Admin\ThongKe.cs">
+    <Compile Include="GUI\Admin\ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\Admin\ThongKe.Designer.cs">
+    <Compile Include="GUI\Admin\ThongKe.Designer.cs">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </Compile>
-    <Compile Include="Common\Form\frMain.cs">
+    <Compile Include="GUI\Common\Form\frMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Common\Form\frMain.Designer.cs">
+    <Compile Include="GUI\Common\Form\frMain.Designer.cs">
       <DependentUpon>frMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\User\SanPham.cs">
+    <Compile Include="GUI\User\SanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\User\SanPham.Designer.cs">
+    <Compile Include="GUI\User\SanPham.Designer.cs">
       <DependentUpon>SanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controls\User\LapHoaDon.cs">
+    <Compile Include="GUI\User\LapHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controls\User\LapHoaDon.Designer.cs">
+    <Compile Include="GUI\User\LapHoaDon.Designer.cs">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Common\Form\DangNhap.resx">
+    <EmbeddedResource Include="GUI\Common\Form\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Common\Form\TrangChu.resx">
+    <EmbeddedResource Include="GUI\Common\Form\TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Admin\ThongKe.resx">
+    <EmbeddedResource Include="GUI\Admin\ThongKe.resx">
       <DependentUpon>ThongKe.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Common\Form\frMain.resx">
+    <EmbeddedResource Include="GUI\Common\Form\frMain.resx">
       <DependentUpon>frMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\User\LapHoaDon.resx">
+    <EmbeddedResource Include="GUI\User\LapHoaDon.resx">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\Admin\QuanLyNhanVien.resx">
+    <EmbeddedResource Include="GUI\Admin\QuanLyNhanVien.resx">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controls\User\SanPham.resx">
+    <EmbeddedResource Include="GUI\User\SanPham.resx">
       <DependentUpon>SanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
