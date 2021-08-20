@@ -7,23 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLTT.BusinessAccessLayer;
+using QLTT.Helpers;
+
 
 namespace QLTT.Common
 {
     public partial class DangNhap : Form
     {
+        private readonly TaiKhoanBAL _taiKhoanBAL;
+        public event LoginSucessDelegate loginSucess;
         public DangNhap()
         {
             InitializeComponent();
+            _taiKhoanBAL = new TaiKhoanBAL();
         }
 
-        private void DangNhap_Load(object sender, EventArgs e)
+        //nhấn nút đăng nhập
+        private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            //nhận thông tin nhập vào
+            string userEmail = this.txtEmail.Text;
+            string userMatKhau = this.txtMatKhau.Text;
+            //kiểm tra rỗng
+            if (userEmail == "" || userMatKhau == "")
+            {
+                MessageBox.Show("Vui lòng nhập đầy dủ thông tin");
+                return;
+            }
+
+            //kiểm tra tài khoản trong database
+            string error;
+            if (_taiKhoanBAL.KiemTraDangNhap(userEmail, userMatKhau, out error))
+            {
+                MessageBox.Show("đăng nhập thành công!");
+                loginSucess();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Đăng nhập sai\n" + error);
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void formDangNhap_Validating(object sender, CancelEventArgs e)
         {
-
+            ValidateInput(sender);
         }
+
+        private bool ValidateInput(object sender)
+        {
+            TextBox txtInput = (TextBox)sender;
+            if (txtInput.Text == "")
+            {
+                errorProvider1.SetError(txtInput, "Vui lòng nhập thông tin!");
+                return false;
+            }
+
+            errorProvider1.SetError(txtInput, "");
+            return true;
+        }
+
     }
 }

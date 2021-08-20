@@ -29,16 +29,14 @@ namespace QLTT.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTieuDe = new System.Windows.Forms.Panel();
             this.labelTieuDe = new System.Windows.Forms.Label();
-            this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnSua = new FontAwesome.Sharp.IconButton();
-            this.btnHuy = new FontAwesome.Sharp.IconButton();
-            this.btnXoa = new FontAwesome.Sharp.IconButton();
-            this.btnLuu = new FontAwesome.Sharp.IconButton();
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GBThongTin = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtMoTa = new System.Windows.Forms.TextBox();
             this.labelMota = new System.Windows.Forms.Label();
@@ -55,13 +53,24 @@ namespace QLTT.Controls
             this.txtMaThuoc = new System.Windows.Forms.TextBox();
             this.labelMaThuoc = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dgrvDanhMucThuoc = new System.Windows.Forms.DataGridView();
+            this.btnXoa = new FontAwesome.Sharp.IconButton();
+            this.btnReset = new FontAwesome.Sharp.IconButton();
+            this.dgvDanhMucThuoc = new System.Windows.Forms.DataGridView();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.txtLoaiThuoc = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.dgvMaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clLoaiThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelTieuDe.SuspendLayout();
-            this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             this.GBThongTin.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvDanhMucThuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMucThuoc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTieuDe
@@ -83,114 +92,25 @@ namespace QLTT.Controls
             this.labelTieuDe.TabIndex = 0;
             this.labelTieuDe.Text = "DANH MỤC THUỐC";
             // 
-            // panelMenu
-            // 
-            this.panelMenu.Controls.Add(this.btnSua);
-            this.panelMenu.Controls.Add(this.btnHuy);
-            this.panelMenu.Controls.Add(this.btnXoa);
-            this.panelMenu.Controls.Add(this.btnLuu);
-            this.panelMenu.Controls.Add(this.btnThem);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.Location = new System.Drawing.Point(5, 5);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
-            this.panelMenu.Size = new System.Drawing.Size(790, 37);
-            this.panelMenu.TabIndex = 18;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.FlatAppearance.BorderSize = 0;
-            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.btnSua.IconColor = System.Drawing.Color.White;
-            this.btnSua.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSua.IconSize = 40;
-            this.btnSua.Location = new System.Drawing.Point(342, -3);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(146, 35);
-            this.btnSua.TabIndex = 13;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSua.UseVisualStyleBackColor = true;
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHuy.FlatAppearance.BorderSize = 0;
-            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnHuy.IconColor = System.Drawing.Color.White;
-            this.btnHuy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHuy.IconSize = 40;
-            this.btnHuy.Location = new System.Drawing.Point(171, -3);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(146, 35);
-            this.btnHuy.TabIndex = 10;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHuy.UseVisualStyleBackColor = true;
-            // 
-            // btnXoa
-            // 
-            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnXoa.FlatAppearance.BorderSize = 0;
-            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnXoa.ForeColor = System.Drawing.Color.White;
-            this.btnXoa.IconChar = FontAwesome.Sharp.IconChar.Eraser;
-            this.btnXoa.IconColor = System.Drawing.Color.White;
-            this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnXoa.IconSize = 40;
-            this.btnXoa.Location = new System.Drawing.Point(646, -3);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(146, 35);
-            this.btnXoa.TabIndex = 12;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnXoa.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnLuu.IconColor = System.Drawing.Color.White;
-            this.btnLuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLuu.IconSize = 40;
-            this.btnLuu.Location = new System.Drawing.Point(494, -3);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(146, 35);
-            this.btnLuu.TabIndex = 11;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuu.UseVisualStyleBackColor = true;
-            // 
             // btnThem
             // 
             this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnThem.FlatAppearance.BorderSize = 0;
             this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.Color.White;
             this.btnThem.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.btnThem.IconColor = System.Drawing.Color.White;
             this.btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThem.IconSize = 40;
-            this.btnThem.Location = new System.Drawing.Point(7, -3);
+            this.btnThem.Location = new System.Drawing.Point(5, 7);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(146, 35);
+            this.btnThem.Size = new System.Drawing.Size(189, 38);
             this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Thêm/Cập Nhật";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel1
             // 
@@ -206,6 +126,9 @@ namespace QLTT.Controls
             // GBThongTin
             // 
             this.GBThongTin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.GBThongTin.Controls.Add(this.panel7);
+            this.GBThongTin.Controls.Add(this.txtLoaiThuoc);
+            this.GBThongTin.Controls.Add(this.label1);
             this.GBThongTin.Controls.Add(this.panel8);
             this.GBThongTin.Controls.Add(this.txtMoTa);
             this.GBThongTin.Controls.Add(this.labelMota);
@@ -233,11 +156,20 @@ namespace QLTT.Controls
             this.GBThongTin.TabStop = false;
             this.GBThongTin.Text = "Các Thông Tin Chi Tiết";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(543, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Loại Thuốc :";
+            // 
             // panel8
             // 
             this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Location = new System.Drawing.Point(543, 68);
+            this.panel8.Location = new System.Drawing.Point(543, 63);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(40, 2);
             this.panel8.TabIndex = 5;
@@ -248,10 +180,10 @@ namespace QLTT.Controls
             this.txtMoTa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtMoTa.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMoTa.ForeColor = System.Drawing.Color.White;
-            this.txtMoTa.Location = new System.Drawing.Point(592, 49);
+            this.txtMoTa.Location = new System.Drawing.Point(592, 45);
             this.txtMoTa.Multiline = true;
             this.txtMoTa.Name = "txtMoTa";
-            this.txtMoTa.Size = new System.Drawing.Size(159, 66);
+            this.txtMoTa.Size = new System.Drawing.Size(159, 20);
             this.txtMoTa.TabIndex = 7;
             this.txtMoTa.Text = "đoán xem nè ";
             // 
@@ -259,17 +191,17 @@ namespace QLTT.Controls
             // 
             this.labelMota.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelMota.AutoSize = true;
-            this.labelMota.Location = new System.Drawing.Point(540, 49);
+            this.labelMota.Location = new System.Drawing.Point(543, 45);
             this.labelMota.Name = "labelMota";
-            this.labelMota.Size = new System.Drawing.Size(43, 17);
+            this.labelMota.Size = new System.Drawing.Size(51, 17);
             this.labelMota.TabIndex = 3;
-            this.labelMota.Text = "Mô tả";
+            this.labelMota.Text = "Mô tả :";
             // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(271, 63);
+            this.panel6.Location = new System.Drawing.Point(290, 63);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 2);
             this.panel6.TabIndex = 5;
@@ -280,7 +212,7 @@ namespace QLTT.Controls
             this.txtSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSoLuong.ForeColor = System.Drawing.Color.White;
-            this.txtSoLuong.Location = new System.Drawing.Point(367, 46);
+            this.txtSoLuong.Location = new System.Drawing.Point(333, 46);
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(121, 16);
             this.txtSoLuong.TabIndex = 3;
@@ -290,7 +222,7 @@ namespace QLTT.Controls
             // 
             this.panel5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.Location = new System.Drawing.Point(292, 103);
+            this.panel5.Location = new System.Drawing.Point(290, 103);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(150, 2);
             this.panel5.TabIndex = 5;
@@ -301,9 +233,9 @@ namespace QLTT.Controls
             this.labelSoLuong.AutoSize = true;
             this.labelSoLuong.Location = new System.Drawing.Point(258, 46);
             this.labelSoLuong.Name = "labelSoLuong";
-            this.labelSoLuong.Size = new System.Drawing.Size(69, 17);
+            this.labelSoLuong.Size = new System.Drawing.Size(77, 17);
             this.labelSoLuong.TabIndex = 3;
-            this.labelSoLuong.Text = "Số Lượng";
+            this.labelSoLuong.Text = "Số Lượng :";
             // 
             // txtDonGia
             // 
@@ -311,7 +243,7 @@ namespace QLTT.Controls
             this.txtDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtDonGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDonGia.ForeColor = System.Drawing.Color.White;
-            this.txtDonGia.Location = new System.Drawing.Point(342, 86);
+            this.txtDonGia.Location = new System.Drawing.Point(333, 86);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.Size = new System.Drawing.Size(124, 16);
             this.txtDonGia.TabIndex = 2;
@@ -331,9 +263,9 @@ namespace QLTT.Controls
             this.labelDonGia.AutoSize = true;
             this.labelDonGia.Location = new System.Drawing.Point(261, 86);
             this.labelDonGia.Name = "labelDonGia";
-            this.labelDonGia.Size = new System.Drawing.Size(60, 17);
+            this.labelDonGia.Size = new System.Drawing.Size(68, 17);
             this.labelDonGia.TabIndex = 3;
-            this.labelDonGia.Text = "Đơn Giá";
+            this.labelDonGia.Text = "Đơn Giá :";
             // 
             // txtTenThuoc
             // 
@@ -345,7 +277,6 @@ namespace QLTT.Controls
             this.txtTenThuoc.Size = new System.Drawing.Size(124, 16);
             this.txtTenThuoc.TabIndex = 1;
             this.txtTenThuoc.Text = "đoán xem nè ";
-            this.txtTenThuoc.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // panel3
             // 
@@ -360,9 +291,9 @@ namespace QLTT.Controls
             this.labelTenThuoc.AutoSize = true;
             this.labelTenThuoc.Location = new System.Drawing.Point(13, 86);
             this.labelTenThuoc.Name = "labelTenThuoc";
-            this.labelTenThuoc.Size = new System.Drawing.Size(77, 17);
+            this.labelTenThuoc.Size = new System.Drawing.Size(85, 17);
             this.labelTenThuoc.TabIndex = 3;
-            this.labelTenThuoc.Text = "Tên Thuốc";
+            this.labelTenThuoc.Text = "Tên Thuốc :";
             // 
             // txtMaThuoc
             // 
@@ -381,14 +312,16 @@ namespace QLTT.Controls
             this.labelMaThuoc.AutoSize = true;
             this.labelMaThuoc.Location = new System.Drawing.Point(15, 46);
             this.labelMaThuoc.Name = "labelMaThuoc";
-            this.labelMaThuoc.Size = new System.Drawing.Size(75, 17);
+            this.labelMaThuoc.Size = new System.Drawing.Size(79, 17);
             this.labelMaThuoc.TabIndex = 0;
-            this.labelMaThuoc.Text = "Mã Thuốc ";
+            this.labelMaThuoc.Text = "Mã Thuốc :";
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dgrvDanhMucThuoc);
-            this.panel2.Controls.Add(this.panelMenu);
+            this.panel2.Controls.Add(this.btnThem);
+            this.panel2.Controls.Add(this.btnXoa);
+            this.panel2.Controls.Add(this.btnReset);
+            this.panel2.Controls.Add(this.dgvDanhMucThuoc);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 195);
             this.panel2.Name = "panel2";
@@ -396,14 +329,151 @@ namespace QLTT.Controls
             this.panel2.Size = new System.Drawing.Size(800, 255);
             this.panel2.TabIndex = 20;
             // 
-            // dgrvDanhMucThuoc
+            // btnXoa
             // 
-            this.dgrvDanhMucThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrvDanhMucThuoc.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgrvDanhMucThuoc.Location = new System.Drawing.Point(5, 42);
-            this.dgrvDanhMucThuoc.Name = "dgrvDanhMucThuoc";
-            this.dgrvDanhMucThuoc.Size = new System.Drawing.Size(790, 208);
-            this.dgrvDanhMucThuoc.TabIndex = 0;
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnXoa.FlatAppearance.BorderSize = 0;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnXoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoa.ForeColor = System.Drawing.Color.White;
+            this.btnXoa.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            this.btnXoa.IconColor = System.Drawing.Color.White;
+            this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnXoa.IconSize = 40;
+            this.btnXoa.Location = new System.Drawing.Point(649, 0);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(146, 45);
+            this.btnXoa.TabIndex = 12;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnReset.FlatAppearance.BorderSize = 0;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.IconChar = FontAwesome.Sharp.IconChar.Redo;
+            this.btnReset.IconColor = System.Drawing.Color.White;
+            this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReset.IconSize = 40;
+            this.btnReset.Location = new System.Drawing.Point(295, 4);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(189, 44);
+            this.btnReset.TabIndex = 13;
+            this.btnReset.Text = "Tải Lại";
+            this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // dgvDanhMucThuoc
+            // 
+            this.dgvDanhMucThuoc.AllowUserToAddRows = false;
+            this.dgvDanhMucThuoc.AllowUserToDeleteRows = false;
+            this.dgvDanhMucThuoc.AllowUserToResizeColumns = false;
+            this.dgvDanhMucThuoc.AllowUserToResizeRows = false;
+            this.dgvDanhMucThuoc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvDanhMucThuoc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvDanhMucThuoc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dgvDanhMucThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDanhMucThuoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMaThuoc,
+            this.clLoaiThuoc,
+            this.dgvTenThuoc,
+            this.dgvSoLuong,
+            this.dgvDonGia,
+            this.dgvMoTa});
+            this.dgvDanhMucThuoc.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvDanhMucThuoc.GridColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dgvDanhMucThuoc.Location = new System.Drawing.Point(5, 50);
+            this.dgvDanhMucThuoc.Name = "dgvDanhMucThuoc";
+            this.dgvDanhMucThuoc.ReadOnly = true;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
+            this.dgvDanhMucThuoc.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDanhMucThuoc.Size = new System.Drawing.Size(790, 200);
+            this.dgvDanhMucThuoc.TabIndex = 0;
+            this.dgvDanhMucThuoc.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDanhMucThuoc_RowHeaderMouseClick);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // txtLoaiThuoc
+            // 
+            this.txtLoaiThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtLoaiThuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txtLoaiThuoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtLoaiThuoc.ForeColor = System.Drawing.Color.White;
+            this.txtLoaiThuoc.Location = new System.Drawing.Point(636, 87);
+            this.txtLoaiThuoc.Multiline = true;
+            this.txtLoaiThuoc.Name = "txtLoaiThuoc";
+            this.txtLoaiThuoc.Size = new System.Drawing.Size(86, 20);
+            this.txtLoaiThuoc.TabIndex = 10;
+            this.txtLoaiThuoc.Text = "đoán xem nè ";
+            // 
+            // panel7
+            // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(546, 105);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(150, 2);
+            this.panel7.TabIndex = 11;
+            // 
+            // dgvMaThuoc
+            // 
+            this.dgvMaThuoc.Frozen = true;
+            this.dgvMaThuoc.HeaderText = "Mã Thuôc";
+            this.dgvMaThuoc.Name = "dgvMaThuoc";
+            this.dgvMaThuoc.ReadOnly = true;
+            this.dgvMaThuoc.Width = 80;
+            // 
+            // clLoaiThuoc
+            // 
+            this.clLoaiThuoc.Frozen = true;
+            this.clLoaiThuoc.HeaderText = "Loại Thuốc";
+            this.clLoaiThuoc.Name = "clLoaiThuoc";
+            this.clLoaiThuoc.ReadOnly = true;
+            // 
+            // dgvTenThuoc
+            // 
+            this.dgvTenThuoc.Frozen = true;
+            this.dgvTenThuoc.HeaderText = "Tên Thuốc";
+            this.dgvTenThuoc.Name = "dgvTenThuoc";
+            this.dgvTenThuoc.ReadOnly = true;
+            this.dgvTenThuoc.Width = 200;
+            // 
+            // dgvSoLuong
+            // 
+            this.dgvSoLuong.Frozen = true;
+            this.dgvSoLuong.HeaderText = "Số Lượng";
+            this.dgvSoLuong.Name = "dgvSoLuong";
+            this.dgvSoLuong.ReadOnly = true;
+            this.dgvSoLuong.Width = 110;
+            // 
+            // dgvDonGia
+            // 
+            this.dgvDonGia.Frozen = true;
+            this.dgvDonGia.HeaderText = "Đơn Giá";
+            this.dgvDonGia.Name = "dgvDonGia";
+            this.dgvDonGia.ReadOnly = true;
+            // 
+            // dgvMoTa
+            // 
+            this.dgvMoTa.Frozen = true;
+            this.dgvMoTa.HeaderText = "Mô Tả";
+            this.dgvMoTa.Name = "dgvMoTa";
+            this.dgvMoTa.ReadOnly = true;
+            this.dgvMoTa.Width = 250;
             // 
             // SanPham
             // 
@@ -418,14 +488,15 @@ namespace QLTT.Controls
             this.Name = "SanPham";
             this.ShowIcon = false;
             this.Text = "Quản Lý Sản Phẩm";
+            this.Load += new System.EventHandler(this.SanPham_Load);
             this.panelTieuDe.ResumeLayout(false);
             this.panelTieuDe.PerformLayout();
-            this.panelMenu.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.GBThongTin.ResumeLayout(false);
             this.GBThongTin.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvDanhMucThuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDanhMucThuoc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -434,15 +505,11 @@ namespace QLTT.Controls
 
         private System.Windows.Forms.Panel panelTieuDe;
         private System.Windows.Forms.Label labelTieuDe;
-        private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton btnHuy;
-        private FontAwesome.Sharp.IconButton btnXoa;
-        private FontAwesome.Sharp.IconButton btnLuu;
         private FontAwesome.Sharp.IconButton btnThem;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox GBThongTin;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView dgrvDanhMucThuoc;
+        private System.Windows.Forms.DataGridView dgvDanhMucThuoc;
         private System.Windows.Forms.TextBox txtMoTa;
         private System.Windows.Forms.Label labelMota;
         private System.Windows.Forms.Panel panel6;
@@ -458,6 +525,17 @@ namespace QLTT.Controls
         private System.Windows.Forms.TextBox txtMaThuoc;
         private System.Windows.Forms.Label labelMaThuoc;
         private System.Windows.Forms.Panel panel8;
-        private FontAwesome.Sharp.IconButton btnSua;
+        private FontAwesome.Sharp.IconButton btnXoa;
+        private FontAwesome.Sharp.IconButton btnReset;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.TextBox txtLoaiThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clLoaiThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenThuoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvDonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMoTa;
     }
 }

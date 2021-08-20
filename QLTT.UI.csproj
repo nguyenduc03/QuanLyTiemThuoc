@@ -33,6 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
     </Reference>
@@ -94,6 +101,7 @@
     <Compile Include="GUI\User\LapHoaDon.Designer.cs">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\LoginSuccessDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\Common\Form\DangNhap.resx">
@@ -182,6 +190,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LogoFinal2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="QLTT.Business.Layer\QLTT.BusinessAccessLayer.csproj">
+      <Project>{993fe360-b9e7-4230-bb5a-bb46c0532b3b}</Project>
+      <Name>QLTT.BusinessAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="QLTT.DataAccessLayer\QLTT.DataAccessLayer.csproj">
+      <Project>{beb8fafa-9fb1-4571-a6fd-a824e6c328fb}</Project>
+      <Name>QLTT.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="QLTT.DTO\QLTT.DTO.csproj">
+      <Project>{c8ce86e9-3f98-48f2-ab8d-a2c8aee731c5}</Project>
+      <Name>QLTT.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

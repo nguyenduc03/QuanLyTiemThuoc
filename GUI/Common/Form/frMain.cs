@@ -26,14 +26,10 @@ namespace QLTT.Controls.User
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-
+            initMenu(false);
         }
         private  void OpenChildForm (Form ChildForm)
         {
@@ -115,6 +111,46 @@ namespace QLTT.Controls.User
         {
             OpenChildForm(new ThongKe());
             ShowCurrentBTN(sender, ClassColor.color5);
+        }
+
+        private void btnDangNhap2_Click(object sender, EventArgs e)
+        {
+            Form frm = this.MdiChildren.OfType<DangNhap>().FirstOrDefault();
+            if(frm == null)
+            {
+                DangNhap frmLogin = new DangNhap();
+                frmLogin.loginSucess += FrmLogin_loginSucess;
+                frmLogin.Show();
+            }
+            else
+            {
+                frm.Activate();
+            }
+        }
+
+        private void FrmLogin_loginSucess()
+        {
+            initMenu(true);
+        }
+
+        private void initMenu(bool login)
+        {
+            btnTrangChu.Enabled = login;
+            pnContent.Enabled = login;
+            btnLapHoaDon.Enabled = login;
+            btnQuanLyNV.Enabled = login;
+            btnSanPham.Enabled = login;
+            btnThongke.Enabled = login;
+            btnDangXuat.Enabled = login;
+            btnDangNhap2.Enabled = !login;
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            initMenu(false);
+            DangNhap frmLogin = new DangNhap();
+            frmLogin.loginSucess += FrmLogin_loginSucess;
+            frmLogin.Show();
         }
     }
 }
