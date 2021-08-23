@@ -18,7 +18,6 @@ namespace QLTT.DataAccessLayer
                                select new ThuocDTO()
                                {
                                    MaThuoc = thuoc.MaThuoc,
-                                   MaLoai = thuoc.MaLoai,
                                    TenThuoc = thuoc.TenThuoc,
                                    DonGia = (int)thuoc.DonGia,
                                    SoLuong = (int)thuoc.SoLuong,
@@ -102,7 +101,6 @@ namespace QLTT.DataAccessLayer
                     temp.MoTa = newThuoc.MoTa;
                     temp.TenThuoc = newThuoc.TenThuoc;
                     temp.SoLuong = newThuoc.SoLuong;
-                    temp.MaLoai = newThuoc.MaLoai;
                     dbcontext.SaveChanges();
                     return "cập nhật thành công";
                 }

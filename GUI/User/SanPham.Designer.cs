@@ -36,7 +36,6 @@ namespace QLTT.Controls
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.GBThongTin = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.txtMoTa = new System.Windows.Forms.TextBox();
             this.labelMota = new System.Windows.Forms.Label();
@@ -57,10 +56,7 @@ namespace QLTT.Controls
             this.btnReset = new FontAwesome.Sharp.IconButton();
             this.dgvDanhMucThuoc = new System.Windows.Forms.DataGridView();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.txtLoaiThuoc = new System.Windows.Forms.TextBox();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.dgvMaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clLoaiThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -126,9 +122,6 @@ namespace QLTT.Controls
             // GBThongTin
             // 
             this.GBThongTin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.GBThongTin.Controls.Add(this.panel7);
-            this.GBThongTin.Controls.Add(this.txtLoaiThuoc);
-            this.GBThongTin.Controls.Add(this.label1);
             this.GBThongTin.Controls.Add(this.panel8);
             this.GBThongTin.Controls.Add(this.txtMoTa);
             this.GBThongTin.Controls.Add(this.labelMota);
@@ -155,15 +148,6 @@ namespace QLTT.Controls
             this.GBThongTin.TabIndex = 0;
             this.GBThongTin.TabStop = false;
             this.GBThongTin.Text = "Các Thông Tin Chi Tiết";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(543, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Loại Thuốc :";
             // 
             // panel8
             // 
@@ -383,7 +367,6 @@ namespace QLTT.Controls
             this.dgvDanhMucThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhMucThuoc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvMaThuoc,
-            this.clLoaiThuoc,
             this.dgvTenThuoc,
             this.dgvSoLuong,
             this.dgvDonGia,
@@ -407,28 +390,6 @@ namespace QLTT.Controls
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // txtLoaiThuoc
-            // 
-            this.txtLoaiThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtLoaiThuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.txtLoaiThuoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtLoaiThuoc.ForeColor = System.Drawing.Color.White;
-            this.txtLoaiThuoc.Location = new System.Drawing.Point(636, 87);
-            this.txtLoaiThuoc.Multiline = true;
-            this.txtLoaiThuoc.Name = "txtLoaiThuoc";
-            this.txtLoaiThuoc.Size = new System.Drawing.Size(86, 20);
-            this.txtLoaiThuoc.TabIndex = 10;
-            this.txtLoaiThuoc.Text = "đoán xem nè ";
-            // 
-            // panel7
-            // 
-            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(546, 105);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(150, 2);
-            this.panel7.TabIndex = 11;
-            // 
             // dgvMaThuoc
             // 
             this.dgvMaThuoc.Frozen = true;
@@ -436,13 +397,6 @@ namespace QLTT.Controls
             this.dgvMaThuoc.Name = "dgvMaThuoc";
             this.dgvMaThuoc.ReadOnly = true;
             this.dgvMaThuoc.Width = 80;
-            // 
-            // clLoaiThuoc
-            // 
-            this.clLoaiThuoc.Frozen = true;
-            this.clLoaiThuoc.HeaderText = "Loại Thuốc";
-            this.clLoaiThuoc.Name = "clLoaiThuoc";
-            this.clLoaiThuoc.ReadOnly = true;
             // 
             // dgvTenThuoc
             // 
@@ -528,11 +482,7 @@ namespace QLTT.Controls
         private FontAwesome.Sharp.IconButton btnXoa;
         private FontAwesome.Sharp.IconButton btnReset;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox txtLoaiThuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaThuoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clLoaiThuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenThuoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvDonGia;

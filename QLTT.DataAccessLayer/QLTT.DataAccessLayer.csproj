@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Enities\CTHD.cs" />
     <Compile Include="Enities\HoaDon.cs" />
-    <Compile Include="Enities\LoaiThuoc.cs" />
     <Compile Include="Enities\NhanVien.cs" />
     <Compile Include="Enities\QLTTModel.cs" />
     <Compile Include="Enities\sysdiagram.cs" />
@@ -71,5 +70,6 @@
       <Name>QLTT.DTO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

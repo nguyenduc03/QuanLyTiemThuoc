@@ -30,7 +30,6 @@ namespace QLTT.Controls
             txtMoTa.Text = "";
             txtTenThuoc.Text = "";
             txtDonGia.Text = "";
-            txtLoaiThuoc.Text = "";
         }
 
         private void fillDGV(List<ThuocDTO> dsThuoc)
@@ -38,7 +37,7 @@ namespace QLTT.Controls
             dgvDanhMucThuoc.Rows.Clear();
             foreach (ThuocDTO thuoc in dsThuoc)
             {
-                dgvDanhMucThuoc.Rows.Add(thuoc.MaThuoc, thuoc.MaLoai, thuoc.TenThuoc, thuoc.SoLuong.ToString(),
+                dgvDanhMucThuoc.Rows.Add(thuoc.MaThuoc, thuoc.TenThuoc, thuoc.SoLuong.ToString(),
                     thuoc.DonGia.ToString(), thuoc.MoTa);
             }
         }
@@ -53,12 +52,11 @@ namespace QLTT.Controls
         private void dgvDanhMucThuoc_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int index = e.RowIndex;
-            txtTenThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
+            txtTenThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[1].Value.ToString();
             txtMaThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[0].Value.ToString();
-            txtMoTa.Text = dgvDanhMucThuoc.Rows[index].Cells[5].Value.ToString();
-            txtDonGia.Text = dgvDanhMucThuoc.Rows[index].Cells[4].Value.ToString();
-            txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[3].Value.ToString();
-            txtLoaiThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[1].Value.ToString();
+            txtMoTa.Text = dgvDanhMucThuoc.Rows[index].Cells[4].Value.ToString();
+            txtDonGia.Text = dgvDanhMucThuoc.Rows[index].Cells[3].Value.ToString();
+            txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -70,7 +68,7 @@ namespace QLTT.Controls
         {
             if (txtTenThuoc.Text == "" || txtMaThuoc.Text == "" 
                 || txtMoTa.Text == "" || txtDonGia.Text == "" 
-                || txtSoLuong.Text == "" || txtLoaiThuoc.Text == "")
+                || txtSoLuong.Text == "")
             {
                 MessageBox.Show("vui lòng điền đầy đủ thông tin");
                 return false;
@@ -105,13 +103,6 @@ namespace QLTT.Controls
                 return false;
             }
 
-            if (txtLoaiThuoc.Text != "DB" && txtLoaiThuoc.Text != "ND" 
-                && txtLoaiThuoc.Text != "GD" && txtLoaiThuoc.Text != "TN")
-            {
-                MessageBox.Show("vui lòng điền đúng mã loại thuốc");
-                return false;
-            }
-
             return true;
         }
 
@@ -125,7 +116,6 @@ namespace QLTT.Controls
                 thuocMoi.MoTa = txtMoTa.Text;
                 thuocMoi.SoLuong = int.Parse(txtSoLuong.Text);
                 thuocMoi.DonGia = int.Parse(txtDonGia.Text);
-                thuocMoi.MaLoai = txtLoaiThuoc.Text;
                 DialogResult result = MessageBox.Show($"Chắc chắn muốn cập nhật thuốc { txtMaThuoc.Text} không?",
                     "Muốn cập nhật database à", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
 
