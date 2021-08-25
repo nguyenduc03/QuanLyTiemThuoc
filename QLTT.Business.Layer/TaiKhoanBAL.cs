@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using QLTT.DataAccessLayer;
-
+using QLTT.DataAccessLayer.Enities;
 
 namespace QLTT.BusinessAccessLayer
 {
@@ -44,6 +44,13 @@ namespace QLTT.BusinessAccessLayer
             }
 
             return strBuilder.ToString();
+        }
+
+
+        //lấy tài khoản
+        public NhanVien layTaiKhoan(string userEmail, string password, out string error)
+        {
+            return _taiKhoanDAL.layTaiKhoan(userEmail, MD5Hash(password), out error);
         }
     }
 }

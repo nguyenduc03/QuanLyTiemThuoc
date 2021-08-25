@@ -55,12 +55,12 @@ namespace QLTT.Controls
             this.btnXoa = new FontAwesome.Sharp.IconButton();
             this.btnReset = new FontAwesome.Sharp.IconButton();
             this.dgvDanhMucThuoc = new System.Windows.Forms.DataGridView();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.dgvMaThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvTenThuoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvMoTa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelTieuDe.SuspendLayout();
             this.panel1.SuspendLayout();
             this.GBThongTin.SuspendLayout();
@@ -384,11 +384,8 @@ namespace QLTT.Controls
             this.dgvDanhMucThuoc.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDanhMucThuoc.Size = new System.Drawing.Size(790, 200);
             this.dgvDanhMucThuoc.TabIndex = 0;
+            this.dgvDanhMucThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMucThuoc_CellClick);
             this.dgvDanhMucThuoc.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDanhMucThuoc_RowHeaderMouseClick);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
             // 
             // dgvMaThuoc
             // 
@@ -428,6 +425,10 @@ namespace QLTT.Controls
             this.dgvMoTa.Name = "dgvMoTa";
             this.dgvMoTa.ReadOnly = true;
             this.dgvMoTa.Width = 250;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // SanPham
             // 

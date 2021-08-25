@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using QLTT.Common;
 using QLTT.Controls.Admin;
+using QLTT.DataAccessLayer.Enities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,18 +19,23 @@ namespace QLTT.Controls.User
         private IconButton CurrentBTN = new IconButton();
 
         private Form CurrentChildForm;
-        public UserForm()
+
+        private DangNhap dangNhap;
+
+        private NhanVien nhanVien;
+        public UserForm(NhanVien nv, DangNhap temp)
         {
             InitializeComponent();
             OpenChildForm(new TrangChu());
             ShowCurrentBTN(btnTrangChu, ClassColor.color1);
-
+            this.nhanVien = nv;
+            this.dangNhap = temp;
         }
 
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            initMenu(false);
+            initMenu(bool.Parse(nhanVien.Role.ToString()));
         }
         private  void OpenChildForm (Form ChildForm)
         {
@@ -119,7 +125,7 @@ namespace QLTT.Controls.User
             if(frm == null)
             {
                 DangNhap frmLogin = new DangNhap();
-                frmLogin.loginSucess += FrmLogin_loginSucess;
+                //frmLogin.loginSucess += FrmLogin_loginSucess;
                 frmLogin.Show();
             }
             else
@@ -133,24 +139,21 @@ namespace QLTT.Controls.User
             initMenu(true);
         }
 
-        private void initMenu(bool login)
+        private void initMenu(bool role)
         {
-            btnTrangChu.Enabled = login;
-            pnContent.Enabled = login;
-            btnLapHoaDon.Enabled = login;
-            btnQuanLyNV.Enabled = login;
-            btnSanPham.Enabled = login;
-            btnThongke.Enabled = login;
-            btnDangXuat.Enabled = login;
-            btnDangNhap2.Enabled = !login;
+            btnQuanLyNV.Visible = role;
+            btnThongke.Visible = role;
+            btnTrangChu.Visible = true;
+            btnLapHoaDon.Visible = true;
+            btnSanPham.Visible = true;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            initMenu(false);
-            DangNhap frmLogin = new DangNhap();
-            frmLogin.loginSucess += FrmLogin_loginSucess;
-            frmLogin.Show();
+            this.Close();
+            this.dangNhap.Show();
+            //frmLogin.loginSucess += FrmLogin_loginSucess;
+
         }
     }
 }

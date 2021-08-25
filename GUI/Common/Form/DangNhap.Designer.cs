@@ -119,6 +119,7 @@ namespace QLTT.Common
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(186, 24);
             this.txtMatKhau.TabIndex = 11;
+            this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtMatKhau_Validating);
             // 
             // panel3
             // 
@@ -173,7 +174,7 @@ namespace QLTT.Common
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(186, 24);
             this.txtEmail.TabIndex = 4;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.formDangNhap_Validating);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtTaiKhoan_Validating);
             // 
             // btnDangNhap
             // 

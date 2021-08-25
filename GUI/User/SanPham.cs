@@ -16,7 +16,7 @@ namespace QLTT.Controls
     public partial class SanPham : Form
     {
         private readonly ThuocBAL _thuocBAL;
-        private string error;
+        private string error = "";
         public SanPham()
         {
             InitializeComponent();
@@ -49,6 +49,8 @@ namespace QLTT.Controls
             fillDGV(dsThuoc);
         }
 
+        
+
         private void dgvDanhMucThuoc_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int index = e.RowIndex;
@@ -59,6 +61,19 @@ namespace QLTT.Controls
             txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
         }
 
+        private void dgvDanhMucThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if(index > -1)
+            {
+                txtTenThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[1].Value.ToString();
+                txtMaThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[0].Value.ToString();
+                txtMoTa.Text = dgvDanhMucThuoc.Rows[index].Cells[4].Value.ToString();
+                txtDonGia.Text = dgvDanhMucThuoc.Rows[index].Cells[3].Value.ToString();
+                txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
+            }
+        }
+
         private void btnReset_Click(object sender, EventArgs e)
         {
             SanPham_Load(sender, e);
@@ -66,9 +81,9 @@ namespace QLTT.Controls
 
         private bool validate()
         {
-            if (txtTenThuoc.Text == "" || txtMaThuoc.Text == "" 
-                || txtMoTa.Text == "" || txtDonGia.Text == "" 
-                || txtSoLuong.Text == "")
+            if (txtTenThuoc.Text.Trim() == "" || txtMaThuoc.Text.Trim() == "" 
+                || txtMoTa.Text.Trim() == "" || txtDonGia.Text.Trim() == "" 
+                || txtSoLuong.Text.Trim() == "")
             {
                 MessageBox.Show("vui lòng điền đầy đủ thông tin");
                 return false;
@@ -116,7 +131,7 @@ namespace QLTT.Controls
                 thuocMoi.MoTa = txtMoTa.Text;
                 thuocMoi.SoLuong = int.Parse(txtSoLuong.Text);
                 thuocMoi.DonGia = int.Parse(txtDonGia.Text);
-                DialogResult result = MessageBox.Show($"Chắc chắn muốn cập nhật thuốc { txtMaThuoc.Text} không?",
+                DialogResult result = MessageBox.Show($"Chắc chắn muốn cập nhật thuốc { txtMaThuoc.Text} trong danh sách không?",
                     "Muốn cập nhật database à", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
 
                 if (result == DialogResult.OK)
@@ -151,5 +166,6 @@ namespace QLTT.Controls
             
         }
 
+        
     }
 }

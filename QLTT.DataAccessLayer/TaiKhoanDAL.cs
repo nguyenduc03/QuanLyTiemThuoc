@@ -14,19 +14,35 @@ namespace QLTT.DataAccessLayer
             error = string.Empty;
             try
             {
-                bool check = true;
                 using (var dbcontext = new QLTTModel())
                 {
-                    check = dbcontext.NhanViens.Any(nv => nv.Email == useremail && nv.MatKhau == password);
+                    return dbcontext.NhanViens.Any(nv => nv.Email == useremail && nv.MatKhau == password);
                 }
-
-                return check;
             }
             catch (Exception exception)
             {
                 error = exception.Message;
                 return false;
             }
+        }
+
+
+        public NhanVien layTaiKhoan(string useremail, string password, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                using (var dbcontext = new QLTTModel())
+                {
+                    return dbcontext.NhanViens.Where(nv => nv.Email == useremail && nv.MatKhau == password).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return null;
+            }
+           
         }
     }
 }
