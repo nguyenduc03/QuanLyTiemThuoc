@@ -346,7 +346,6 @@ namespace QLTT.Controls.User
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tiệm Thuốc";
-            this.Load += new System.EventHandler(this.UserForm_Load);
             this.panel_Menu.ResumeLayout(false);
             this.panel_Menu.PerformLayout();
             this.panel1.ResumeLayout(false);

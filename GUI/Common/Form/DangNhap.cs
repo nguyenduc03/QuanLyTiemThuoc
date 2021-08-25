@@ -18,7 +18,7 @@ namespace QLTT.Common
     public partial class DangNhap : Form
     {
         private readonly TaiKhoanBAL _taiKhoanBAL;
-        //public event LoginSucessDelegate loginSucess;
+        public event LoginSucessDelegate loginSucess;
         public DangNhap()
         {
             InitializeComponent();
@@ -43,10 +43,10 @@ namespace QLTT.Common
             string error = "";
             if (_taiKhoanBAL.KiemTraDangNhap(userEmail, userMatKhau, out error))
             {
-                //loginSucess();
                 QLTTModel dbcontext = new QLTTModel();
                 NhanVien nv = _taiKhoanBAL.layTaiKhoan(userEmail, userMatKhau, out error);
                 UserForm frm = new UserForm(nv, this);
+                loginSucess();
                 MessageBox.Show("đăng nhập thành công!");
                 frm.Show();
                 this.Hide();

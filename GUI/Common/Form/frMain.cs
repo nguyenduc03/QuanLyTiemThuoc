@@ -30,13 +30,9 @@ namespace QLTT.Controls.User
             ShowCurrentBTN(btnTrangChu, ClassColor.color1);
             this.nhanVien = nv;
             this.dangNhap = temp;
+            this.dangNhap.loginSucess += FrmLogin_loginSucess;
         }
 
-
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-            initMenu(bool.Parse(nhanVien.Role.ToString()));
-        }
         private  void OpenChildForm (Form ChildForm)
         {
             if (CurrentChildForm !=null)
@@ -119,24 +115,9 @@ namespace QLTT.Controls.User
             ShowCurrentBTN(sender, ClassColor.color5);
         }
 
-        private void btnDangNhap2_Click(object sender, EventArgs e)
-        {
-            Form frm = this.MdiChildren.OfType<DangNhap>().FirstOrDefault();
-            if(frm == null)
-            {
-                DangNhap frmLogin = new DangNhap();
-                //frmLogin.loginSucess += FrmLogin_loginSucess;
-                frmLogin.Show();
-            }
-            else
-            {
-                frm.Activate();
-            }
-        }
-
         private void FrmLogin_loginSucess()
         {
-            initMenu(true);
+            initMenu(bool.Parse(nhanVien.Role.ToString()));
         }
 
         private void initMenu(bool role)
@@ -152,8 +133,6 @@ namespace QLTT.Controls.User
         {
             this.Close();
             this.dangNhap.Show();
-            //frmLogin.loginSucess += FrmLogin_loginSucess;
-
         }
     }
 }
