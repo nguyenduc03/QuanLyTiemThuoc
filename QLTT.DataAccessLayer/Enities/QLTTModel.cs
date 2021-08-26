@@ -12,20 +12,18 @@ namespace QLTT.DataAccessLayer.Enities
         {
         }
 
+
+        public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
+        public virtual DbSet<LoaiThuoc> LoaiThuocs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
-        public virtual DbSet<CTHD> CTHDs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MaHD)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HoaDon>()
-                .Property(e => e.MaNV)
+            modelBuilder.Entity<CTHD>()
+                .Property(e => e.MaThuoc)
                 .IsUnicode(false);
 
             modelBuilder.Entity<HoaDon>()
@@ -33,8 +31,8 @@ namespace QLTT.DataAccessLayer.Enities
                 .WithRequired(e => e.HoaDon)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<NhanVien>()
-                .Property(e => e.MaNV)
+            modelBuilder.Entity<LoaiThuoc>()
+                .Property(e => e.MaLoai)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
@@ -50,17 +48,12 @@ namespace QLTT.DataAccessLayer.Enities
                 .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc>()
-                .HasMany(e => e.CTHDs)
-                .WithRequired(e => e.Thuoc)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<CTHD>()
-                .Property(e => e.MaThuoc)
+                .Property(e => e.MaLoai)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<CTHD>()
-                .Property(e => e.MaHD)
-                .IsUnicode(false);
+            modelBuilder.Entity<Thuoc>()
+                .HasOptional(e => e.CTHD)
+                .WithRequired(e => e.Thuoc);
         }
     }
 }

@@ -50,12 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChiTietHoaDonDAL.cs" />
     <Compile Include="Enities\CTHD.cs" />
     <Compile Include="Enities\HoaDon.cs" />
+    <Compile Include="Enities\LoaiThuoc.cs" />
     <Compile Include="Enities\NhanVien.cs" />
     <Compile Include="Enities\QLTTModel.cs" />
     <Compile Include="Enities\sysdiagram.cs" />
     <Compile Include="Enities\Thuoc.cs" />
+    <Compile Include="HoaDonDAL.cs" />
+    <Compile Include="NhanVienDAL.cs" />
     <Compile Include="TaiKhoanDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThuocDAL.cs" />
