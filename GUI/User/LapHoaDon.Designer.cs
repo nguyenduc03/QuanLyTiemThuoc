@@ -29,22 +29,29 @@ namespace QLTT
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTitel = new System.Windows.Forms.Panel();
             this.labelDiaChi = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.groupBoxInfo = new System.Windows.Forms.GroupBox();
-            this.txtTenNV = new System.Windows.Forms.TextBox();
             this.cbbMaNV = new System.Windows.Forms.ComboBox();
             this.dtpNgayBan = new System.Windows.Forms.DateTimePicker();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtMaHD = new System.Windows.Forms.TextBox();
             this.label_NgayBan = new System.Windows.Forms.Label();
             this.label_MaNV = new System.Windows.Forms.Label();
-            this.labelTenNV = new System.Windows.Forms.Label();
             this.label_MaHD = new System.Windows.Forms.Label();
             this.groupBoxTTCT = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgv_CTHD = new System.Windows.Forms.DataGridView();
+            this.dgv_HoaDon = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtTongTien = new System.Windows.Forms.TextBox();
@@ -52,7 +59,6 @@ namespace QLTT
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnHuy = new FontAwesome.Sharp.IconButton();
             this.btnInHD = new FontAwesome.Sharp.IconButton();
-            this.btnLuu = new FontAwesome.Sharp.IconButton();
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -62,14 +68,14 @@ namespace QLTT
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelSoLuong = new System.Windows.Forms.Label();
             this.txtSoLuong = new System.Windows.Forms.TextBox();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.labelDonGia = new System.Windows.Forms.Label();
-            this.txtTenThuoc = new System.Windows.Forms.TextBox();
-            this.labelTenThuoc = new System.Windows.Forms.Label();
             this.cbbMaThuoc = new System.Windows.Forms.ComboBox();
             this.label_MaThuoc = new System.Windows.Forms.Label();
-            this.dgrvChiTiet = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -77,10 +83,11 @@ namespace QLTT
             this.panelTitel.SuspendLayout();
             this.groupBoxInfo.SuspendLayout();
             this.groupBoxTTCT.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDon)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTiet)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -100,11 +107,9 @@ namespace QLTT
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBoxTTCT);
             this.splitContainer1.Panel2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 551);
-            this.splitContainer1.SplitterDistance = 181;
+            this.splitContainer1.Size = new System.Drawing.Size(900, 551);
+            this.splitContainer1.SplitterDistance = 147;
             this.splitContainer1.TabIndex = 0;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
             // panelTitel
             // 
@@ -113,7 +118,7 @@ namespace QLTT
             this.panelTitel.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitel.Location = new System.Drawing.Point(0, 0);
             this.panelTitel.Name = "panelTitel";
-            this.panelTitel.Size = new System.Drawing.Size(800, 50);
+            this.panelTitel.Size = new System.Drawing.Size(900, 50);
             this.panelTitel.TabIndex = 3;
             // 
             // labelDiaChi
@@ -132,7 +137,7 @@ namespace QLTT
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(322, 19);
+            this.labelTitle.Location = new System.Drawing.Point(372, 19);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(215, 24);
             this.labelTitle.TabIndex = 0;
@@ -140,41 +145,22 @@ namespace QLTT
             // 
             // groupBoxInfo
             // 
-            this.groupBoxInfo.Controls.Add(this.txtTenNV);
             this.groupBoxInfo.Controls.Add(this.cbbMaNV);
             this.groupBoxInfo.Controls.Add(this.dtpNgayBan);
-            this.groupBoxInfo.Controls.Add(this.panel4);
             this.groupBoxInfo.Controls.Add(this.panel1);
             this.groupBoxInfo.Controls.Add(this.txtMaHD);
             this.groupBoxInfo.Controls.Add(this.label_NgayBan);
             this.groupBoxInfo.Controls.Add(this.label_MaNV);
-            this.groupBoxInfo.Controls.Add(this.labelTenNV);
             this.groupBoxInfo.Controls.Add(this.label_MaHD);
             this.groupBoxInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBoxInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxInfo.ForeColor = System.Drawing.Color.White;
-            this.groupBoxInfo.Location = new System.Drawing.Point(0, 46);
+            this.groupBoxInfo.Location = new System.Drawing.Point(0, 12);
             this.groupBoxInfo.Name = "groupBoxInfo";
-            this.groupBoxInfo.Size = new System.Drawing.Size(800, 135);
+            this.groupBoxInfo.Size = new System.Drawing.Size(900, 135);
             this.groupBoxInfo.TabIndex = 1;
             this.groupBoxInfo.TabStop = false;
             this.groupBoxInfo.Text = "Thông Tin Chung";
-            // 
-            // txtTenNV
-            // 
-            this.txtTenNV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTenNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.txtTenNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenNV.ForeColor = System.Drawing.Color.White;
-            this.txtTenNV.Location = new System.Drawing.Point(517, 81);
-            this.txtTenNV.Multiline = true;
-            this.txtTenNV.Name = "txtTenNV";
-            this.txtTenNV.ReadOnly = true;
-            this.txtTenNV.Size = new System.Drawing.Size(216, 20);
-            this.txtTenNV.TabIndex = 0;
-            this.txtTenNV.TabStop = false;
-            this.txtTenNV.Text = "aaaa";
             // 
             // cbbMaNV
             // 
@@ -183,7 +169,7 @@ namespace QLTT
             this.cbbMaNV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbMaNV.ForeColor = System.Drawing.Color.White;
             this.cbbMaNV.FormattingEnabled = true;
-            this.cbbMaNV.Location = new System.Drawing.Point(512, 37);
+            this.cbbMaNV.Location = new System.Drawing.Point(547, 65);
             this.cbbMaNV.Name = "cbbMaNV";
             this.cbbMaNV.Size = new System.Drawing.Size(224, 24);
             this.cbbMaNV.TabIndex = 0;
@@ -201,15 +187,6 @@ namespace QLTT
             this.dtpNgayBan.Name = "dtpNgayBan";
             this.dtpNgayBan.Size = new System.Drawing.Size(123, 23);
             this.dtpNgayBan.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(460, 104);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(222, 2);
-            this.panel4.TabIndex = 10;
             // 
             // panel1
             // 
@@ -252,24 +229,11 @@ namespace QLTT
             this.label_MaNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_MaNV.AutoSize = true;
             this.label_MaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_MaNV.Location = new System.Drawing.Point(410, 45);
+            this.label_MaNV.Location = new System.Drawing.Point(445, 73);
             this.label_MaNV.Name = "label_MaNV";
-            this.label_MaNV.Size = new System.Drawing.Size(97, 17);
+            this.label_MaNV.Size = new System.Drawing.Size(74, 17);
             this.label_MaNV.TabIndex = 5;
-            this.label_MaNV.Text = "Mã Nhân Viên";
-            this.label_MaNV.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // labelTenNV
-            // 
-            this.labelTenNV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTenNV.AutoSize = true;
-            this.labelTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTenNV.Location = new System.Drawing.Point(410, 84);
-            this.labelTenNV.Name = "labelTenNV";
-            this.labelTenNV.Size = new System.Drawing.Size(101, 17);
-            this.labelTenNV.TabIndex = 3;
-            this.labelTenNV.Text = "Tên Nhân viên";
-            this.labelTenNV.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label_MaNV.Text = "Nhân Viên";
             // 
             // label_MaHD
             // 
@@ -284,20 +248,94 @@ namespace QLTT
             // 
             // groupBoxTTCT
             // 
+            this.groupBoxTTCT.Controls.Add(this.label2);
+            this.groupBoxTTCT.Controls.Add(this.label1);
+            this.groupBoxTTCT.Controls.Add(this.dgv_CTHD);
+            this.groupBoxTTCT.Controls.Add(this.dgv_HoaDon);
             this.groupBoxTTCT.Controls.Add(this.panel5);
             this.groupBoxTTCT.Controls.Add(this.panel9);
             this.groupBoxTTCT.Controls.Add(this.panel11);
-            this.groupBoxTTCT.Controls.Add(this.dgrvChiTiet);
             this.groupBoxTTCT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxTTCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxTTCT.ForeColor = System.Drawing.Color.White;
             this.groupBoxTTCT.Location = new System.Drawing.Point(0, 0);
             this.groupBoxTTCT.Name = "groupBoxTTCT";
-            this.groupBoxTTCT.Size = new System.Drawing.Size(800, 366);
+            this.groupBoxTTCT.Size = new System.Drawing.Size(900, 400);
             this.groupBoxTTCT.TabIndex = 0;
             this.groupBoxTTCT.TabStop = false;
             this.groupBoxTTCT.Text = "Thông Tin Chi Tiết";
-            this.groupBoxTTCT.Enter += new System.EventHandler(this.groupBoxTTCT_Enter);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(554, 135);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 17);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Chi tiết Hóa Đơn";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(162, 135);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 17);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Hóa Đơn";
+            // 
+            // dgv_CTHD
+            // 
+            this.dgv_CTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_CTHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column71,
+            this.Column6,
+            this.Column7});
+            this.dgv_CTHD.Location = new System.Drawing.Point(464, 168);
+            this.dgv_CTHD.Name = "dgv_CTHD";
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_CTHD.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_CTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_CTHD.Size = new System.Drawing.Size(424, 135);
+            this.dgv_CTHD.TabIndex = 20;
+            this.dgv_CTHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CTHD_CellClick);
+            // 
+            // dgv_HoaDon
+            // 
+            this.dgv_HoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_HoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4});
+            this.dgv_HoaDon.Location = new System.Drawing.Point(21, 168);
+            this.dgv_HoaDon.Name = "dgv_HoaDon";
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_HoaDon.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_HoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_HoaDon.Size = new System.Drawing.Size(425, 135);
+            this.dgv_HoaDon.TabIndex = 19;
+            this.dgv_HoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_HoaDon_CellClick);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Mã Hóa Đơn";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Ngày Lập";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Tổng Tiền";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Mã Nhân Viên";
+            this.Column4.Name = "Column4";
             // 
             // panel5
             // 
@@ -305,16 +343,16 @@ namespace QLTT
             this.panel5.Controls.Add(this.txtTongTien);
             this.panel5.Controls.Add(this.labelTongTien);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(3, 300);
+            this.panel5.Location = new System.Drawing.Point(3, 334);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(794, 25);
+            this.panel5.Size = new System.Drawing.Size(894, 25);
             this.panel5.TabIndex = 18;
             // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.White;
-            this.panel6.Location = new System.Drawing.Point(583, 22);
+            this.panel6.Location = new System.Drawing.Point(633, 22);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(150, 2);
             this.panel6.TabIndex = 15;
@@ -325,7 +363,7 @@ namespace QLTT
             this.txtTongTien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtTongTien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTongTien.ForeColor = System.Drawing.Color.White;
-            this.txtTongTien.Location = new System.Drawing.Point(657, 7);
+            this.txtTongTien.Location = new System.Drawing.Point(707, 7);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.ShortcutsEnabled = false;
@@ -339,7 +377,7 @@ namespace QLTT
             this.labelTongTien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelTongTien.AutoSize = true;
             this.labelTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTongTien.Location = new System.Drawing.Point(565, 5);
+            this.labelTongTien.Location = new System.Drawing.Point(615, 5);
             this.labelTongTien.Name = "labelTongTien";
             this.labelTongTien.Size = new System.Drawing.Size(86, 18);
             this.labelTongTien.TabIndex = 0;
@@ -349,12 +387,11 @@ namespace QLTT
             // 
             this.panel9.Controls.Add(this.btnHuy);
             this.panel9.Controls.Add(this.btnInHD);
-            this.panel9.Controls.Add(this.btnLuu);
             this.panel9.Controls.Add(this.btnThem);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel9.Location = new System.Drawing.Point(3, 325);
+            this.panel9.Location = new System.Drawing.Point(3, 359);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(794, 38);
+            this.panel9.Size = new System.Drawing.Size(894, 38);
             this.panel9.TabIndex = 17;
             // 
             // btnHuy
@@ -367,7 +404,7 @@ namespace QLTT
             this.btnHuy.IconColor = System.Drawing.Color.White;
             this.btnHuy.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHuy.IconSize = 40;
-            this.btnHuy.Location = new System.Drawing.Point(239, 0);
+            this.btnHuy.Location = new System.Drawing.Point(289, 0);
             this.btnHuy.Name = "btnHuy";
             this.btnHuy.Size = new System.Drawing.Size(146, 35);
             this.btnHuy.TabIndex = 7;
@@ -386,7 +423,7 @@ namespace QLTT
             this.btnInHD.IconColor = System.Drawing.Color.White;
             this.btnInHD.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnInHD.IconSize = 40;
-            this.btnInHD.Location = new System.Drawing.Point(639, 0);
+            this.btnInHD.Location = new System.Drawing.Point(689, 0);
             this.btnInHD.Name = "btnInHD";
             this.btnInHD.Size = new System.Drawing.Size(146, 35);
             this.btnInHD.TabIndex = 9;
@@ -394,24 +431,6 @@ namespace QLTT
             this.btnInHD.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnInHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInHD.UseVisualStyleBackColor = true;
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnLuu.IconColor = System.Drawing.Color.White;
-            this.btnLuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLuu.IconSize = 40;
-            this.btnLuu.Location = new System.Drawing.Point(457, 3);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(146, 32);
-            this.btnLuu.TabIndex = 8;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuu.UseVisualStyleBackColor = true;
             // 
             // btnThem
             // 
@@ -423,7 +442,7 @@ namespace QLTT
             this.btnThem.IconColor = System.Drawing.Color.White;
             this.btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThem.IconSize = 40;
-            this.btnThem.Location = new System.Drawing.Point(18, 0);
+            this.btnThem.Location = new System.Drawing.Point(68, 0);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(146, 35);
             this.btnThem.TabIndex = 6;
@@ -431,6 +450,7 @@ namespace QLTT
             this.btnThem.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // panel11
             // 
@@ -441,25 +461,21 @@ namespace QLTT
             this.panel11.Controls.Add(this.panel2);
             this.panel11.Controls.Add(this.labelSoLuong);
             this.panel11.Controls.Add(this.txtSoLuong);
-            this.panel11.Controls.Add(this.panel8);
             this.panel11.Controls.Add(this.panel7);
             this.panel11.Controls.Add(this.labelDonGia);
-            this.panel11.Controls.Add(this.txtTenThuoc);
-            this.panel11.Controls.Add(this.labelTenThuoc);
             this.panel11.Controls.Add(this.cbbMaThuoc);
             this.panel11.Controls.Add(this.label_MaThuoc);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(3, 19);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(794, 92);
+            this.panel11.Size = new System.Drawing.Size(894, 92);
             this.panel11.TabIndex = 0;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // panel3
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(304, 77);
+            this.panel3.Location = new System.Drawing.Point(354, 77);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(150, 2);
             this.panel3.TabIndex = 14;
@@ -470,7 +486,7 @@ namespace QLTT
             this.txtDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtDonGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDonGia.ForeColor = System.Drawing.Color.White;
-            this.txtDonGia.Location = new System.Drawing.Point(641, 19);
+            this.txtDonGia.Location = new System.Drawing.Point(410, 17);
             this.txtDonGia.Name = "txtDonGia";
             this.txtDonGia.ReadOnly = true;
             this.txtDonGia.Size = new System.Drawing.Size(124, 16);
@@ -483,7 +499,7 @@ namespace QLTT
             this.txtThanhTien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtThanhTien.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtThanhTien.ForeColor = System.Drawing.Color.White;
-            this.txtThanhTien.Location = new System.Drawing.Point(377, 57);
+            this.txtThanhTien.Location = new System.Drawing.Point(427, 57);
             this.txtThanhTien.Name = "txtThanhTien";
             this.txtThanhTien.ReadOnly = true;
             this.txtThanhTien.Size = new System.Drawing.Size(138, 16);
@@ -494,7 +510,7 @@ namespace QLTT
             // 
             this.labelThanhTien.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelThanhTien.AutoSize = true;
-            this.labelThanhTien.Location = new System.Drawing.Point(284, 57);
+            this.labelThanhTien.Location = new System.Drawing.Point(334, 57);
             this.labelThanhTien.Name = "labelThanhTien";
             this.labelThanhTien.Size = new System.Drawing.Size(81, 17);
             this.labelThanhTien.TabIndex = 15;
@@ -504,7 +520,7 @@ namespace QLTT
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(73, 77);
+            this.panel2.Location = new System.Drawing.Point(123, 77);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(150, 2);
             this.panel2.TabIndex = 13;
@@ -513,7 +529,7 @@ namespace QLTT
             // 
             this.labelSoLuong.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelSoLuong.AutoSize = true;
-            this.labelSoLuong.Location = new System.Drawing.Point(34, 57);
+            this.labelSoLuong.Location = new System.Drawing.Point(84, 57);
             this.labelSoLuong.Name = "labelSoLuong";
             this.labelSoLuong.Size = new System.Drawing.Size(69, 17);
             this.labelSoLuong.TabIndex = 14;
@@ -525,26 +541,17 @@ namespace QLTT
             this.txtSoLuong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtSoLuong.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSoLuong.ForeColor = System.Drawing.Color.White;
-            this.txtSoLuong.Location = new System.Drawing.Point(123, 54);
+            this.txtSoLuong.Location = new System.Drawing.Point(173, 54);
             this.txtSoLuong.Multiline = true;
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 5;
             // 
-            // panel8
-            // 
-            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel8.BackColor = System.Drawing.Color.White;
-            this.panel8.Location = new System.Drawing.Point(304, 36);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(150, 2);
-            this.panel8.TabIndex = 12;
-            // 
             // panel7
             // 
             this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(591, 36);
+            this.panel7.Location = new System.Drawing.Point(360, 34);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(150, 2);
             this.panel7.TabIndex = 11;
@@ -553,34 +560,11 @@ namespace QLTT
             // 
             this.labelDonGia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDonGia.AutoSize = true;
-            this.labelDonGia.Location = new System.Drawing.Point(565, 19);
+            this.labelDonGia.Location = new System.Drawing.Point(334, 17);
             this.labelDonGia.Name = "labelDonGia";
             this.labelDonGia.Size = new System.Drawing.Size(60, 17);
             this.labelDonGia.TabIndex = 5;
             this.labelDonGia.Text = "Đơn Giá";
-            // 
-            // txtTenThuoc
-            // 
-            this.txtTenThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTenThuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.txtTenThuoc.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenThuoc.ForeColor = System.Drawing.Color.White;
-            this.txtTenThuoc.Location = new System.Drawing.Point(377, 12);
-            this.txtTenThuoc.Name = "txtTenThuoc";
-            this.txtTenThuoc.ReadOnly = true;
-            this.txtTenThuoc.Size = new System.Drawing.Size(138, 16);
-            this.txtTenThuoc.TabIndex = 4;
-            this.txtTenThuoc.TabStop = false;
-            // 
-            // labelTenThuoc
-            // 
-            this.labelTenThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.labelTenThuoc.AutoSize = true;
-            this.labelTenThuoc.Location = new System.Drawing.Point(284, 19);
-            this.labelTenThuoc.Name = "labelTenThuoc";
-            this.labelTenThuoc.Size = new System.Drawing.Size(77, 17);
-            this.labelTenThuoc.TabIndex = 3;
-            this.labelTenThuoc.Text = "Tên Thuốc";
             // 
             // cbbMaThuoc
             // 
@@ -589,7 +573,7 @@ namespace QLTT
             this.cbbMaThuoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbbMaThuoc.ForeColor = System.Drawing.Color.White;
             this.cbbMaThuoc.FormattingEnabled = true;
-            this.cbbMaThuoc.Location = new System.Drawing.Point(123, 10);
+            this.cbbMaThuoc.Location = new System.Drawing.Point(173, 10);
             this.cbbMaThuoc.Name = "cbbMaThuoc";
             this.cbbMaThuoc.Size = new System.Drawing.Size(121, 24);
             this.cbbMaThuoc.TabIndex = 4;
@@ -598,29 +582,38 @@ namespace QLTT
             // 
             this.label_MaThuoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label_MaThuoc.AutoSize = true;
-            this.label_MaThuoc.Location = new System.Drawing.Point(34, 13);
+            this.label_MaThuoc.Location = new System.Drawing.Point(84, 13);
             this.label_MaThuoc.Name = "label_MaThuoc";
-            this.label_MaThuoc.Size = new System.Drawing.Size(71, 17);
+            this.label_MaThuoc.Size = new System.Drawing.Size(48, 17);
             this.label_MaThuoc.TabIndex = 1;
-            this.label_MaThuoc.Text = "Mã Thuốc";
+            this.label_MaThuoc.Text = "Thuốc";
             // 
-            // dgrvChiTiet
+            // Column5
             // 
-            this.dgrvChiTiet.BackgroundColor = System.Drawing.Color.Bisque;
-            this.dgrvChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgrvChiTiet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgrvChiTiet.Location = new System.Drawing.Point(3, 19);
-            this.dgrvChiTiet.Name = "dgrvChiTiet";
-            this.dgrvChiTiet.Size = new System.Drawing.Size(794, 344);
-            this.dgrvChiTiet.TabIndex = 0;
-            this.dgrvChiTiet.TabStop = false;
+            this.Column5.HeaderText = "Mã Hóa Đơn";
+            this.Column5.Name = "Column5";
+            // 
+            // Column71
+            // 
+            this.Column71.HeaderText = "Số Lượng Mua";
+            this.Column71.Name = "Column71";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Thuốc";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Giá Tiền";
+            this.Column7.Name = "Column7";
             // 
             // LapHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(800, 551);
+            this.ClientSize = new System.Drawing.Size(900, 551);
             this.Controls.Add(this.splitContainer1);
             this.Name = "LapHoaDon";
             this.ShowIcon = false;
@@ -635,12 +628,14 @@ namespace QLTT
             this.groupBoxInfo.ResumeLayout(false);
             this.groupBoxInfo.PerformLayout();
             this.groupBoxTTCT.ResumeLayout(false);
+            this.groupBoxTTCT.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_CTHD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_HoaDon)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgrvChiTiet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -655,38 +650,42 @@ namespace QLTT
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtMaHD;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DateTimePicker dtpNgayBan;
         private System.Windows.Forms.ComboBox cbbMaNV;
-        private System.Windows.Forms.TextBox txtTenNV;
-        private System.Windows.Forms.Label labelDiaChi;
         private System.Windows.Forms.GroupBox groupBoxTTCT;
-        private System.Windows.Forms.DataGridView dgrvChiTiet;
         private System.Windows.Forms.TextBox txtDonGia;
         private System.Windows.Forms.Label labelDonGia;
-        private System.Windows.Forms.TextBox txtTenThuoc;
-        private System.Windows.Forms.Label labelTenThuoc;
         private System.Windows.Forms.ComboBox cbbMaThuoc;
         private System.Windows.Forms.Label label_MaThuoc;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label labelSoLuong;
         private System.Windows.Forms.TextBox txtSoLuong;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtThanhTien;
         private System.Windows.Forms.Label labelThanhTien;
-        private System.Windows.Forms.Label labelTenNV;
         private System.Windows.Forms.Panel panelTitel;
         private FontAwesome.Sharp.IconButton btnThem;
         private System.Windows.Forms.Panel panel11;
         private FontAwesome.Sharp.IconButton btnHuy;
         private FontAwesome.Sharp.IconButton btnInHD;
-        private FontAwesome.Sharp.IconButton btnLuu;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Label labelTongTien;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.DataGridView dgv_CTHD;
+        private System.Windows.Forms.DataGridView dgv_HoaDon;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.Label labelDiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column71;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

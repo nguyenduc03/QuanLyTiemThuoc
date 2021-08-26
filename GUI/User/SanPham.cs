@@ -53,12 +53,7 @@ namespace QLTT.Controls
 
         private void dgvDanhMucThuoc_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int index = e.RowIndex;
-            txtTenThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[1].Value.ToString();
-            txtMaThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[0].Value.ToString();
-            txtMoTa.Text = dgvDanhMucThuoc.Rows[index].Cells[4].Value.ToString();
-            txtDonGia.Text = dgvDanhMucThuoc.Rows[index].Cells[3].Value.ToString();
-            txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
+                
         }
 
         private void dgvDanhMucThuoc_CellClick(object sender, DataGridViewCellEventArgs e)

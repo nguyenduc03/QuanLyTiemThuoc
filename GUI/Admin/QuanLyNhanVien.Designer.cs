@@ -29,12 +29,27 @@ namespace QLTT.Controls
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNoiDung = new System.Windows.Forms.Panel();
+            this.dgv_NV = new System.Windows.Forms.DataGridView();
+            this.dgvMaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTenNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvNS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvSDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelSapXep = new System.Windows.Forms.Panel();
             this.btnTimKiem = new FontAwesome.Sharp.IconButton();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.panelChucNang = new System.Windows.Forms.Panel();
-            this.cbQuyenADMIN = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_MK = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnSua = new FontAwesome.Sharp.IconButton();
+            this.chkAdmin = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -51,26 +66,22 @@ namespace QLTT.Controls
             this.txtMaNV = new System.Windows.Forms.TextBox();
             this.labelMaNV = new System.Windows.Forms.Label();
             this.btnReset = new FontAwesome.Sharp.IconButton();
-            this.btnSua = new FontAwesome.Sharp.IconButton();
-            this.btnHuy = new FontAwesome.Sharp.IconButton();
             this.btnThem = new FontAwesome.Sharp.IconButton();
             this.btnXoa = new FontAwesome.Sharp.IconButton();
-            this.btnLuu = new FontAwesome.Sharp.IconButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panelTieuDe = new System.Windows.Forms.Panel();
             this.labelTieuDe = new System.Windows.Forms.Label();
             this.panelNoiDung.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NV)).BeginInit();
             this.panelSapXep.SuspendLayout();
             this.panelChucNang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelTieuDe.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelNoiDung
             // 
+            this.panelNoiDung.Controls.Add(this.dgv_NV);
             this.panelNoiDung.Controls.Add(this.panelSapXep);
             this.panelNoiDung.Controls.Add(this.panelChucNang);
-            this.panelNoiDung.Controls.Add(this.dataGridView1);
             this.panelNoiDung.Controls.Add(this.panelTieuDe);
             this.panelNoiDung.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelNoiDung.Location = new System.Drawing.Point(0, 0);
@@ -78,6 +89,75 @@ namespace QLTT.Controls
             this.panelNoiDung.Padding = new System.Windows.Forms.Padding(6);
             this.panelNoiDung.Size = new System.Drawing.Size(816, 583);
             this.panelNoiDung.TabIndex = 2;
+            this.panelNoiDung.Paint += new System.Windows.Forms.PaintEventHandler(this.panelNoiDung_Paint);
+            // 
+            // dgv_NV
+            // 
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgv_NV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgv_NV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_NV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvMaNV,
+            this.dgvTenNV,
+            this.dgvNS,
+            this.dgvSDT,
+            this.dgvEmail,
+            this.dgvMK,
+            this.dgvRole});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_NV.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv_NV.Location = new System.Drawing.Point(6, 341);
+            this.dgv_NV.Name = "dgv_NV";
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.dgv_NV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgv_NV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv_NV.Size = new System.Drawing.Size(804, 233);
+            this.dgv_NV.TabIndex = 6;
+            this.dgv_NV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_NV_CellClick);
+            // 
+            // dgvMaNV
+            // 
+            this.dgvMaNV.HeaderText = "Mã Nhân Viên";
+            this.dgvMaNV.Name = "dgvMaNV";
+            // 
+            // dgvTenNV
+            // 
+            this.dgvTenNV.HeaderText = "Tên Nhân Viên";
+            this.dgvTenNV.Name = "dgvTenNV";
+            this.dgvTenNV.Width = 150;
+            // 
+            // dgvNS
+            // 
+            this.dgvNS.HeaderText = "Ngày Sinh";
+            this.dgvNS.Name = "dgvNS";
+            // 
+            // dgvSDT
+            // 
+            this.dgvSDT.HeaderText = "Số ĐIện Thoại";
+            this.dgvSDT.Name = "dgvSDT";
+            // 
+            // dgvEmail
+            // 
+            this.dgvEmail.HeaderText = "Email";
+            this.dgvEmail.Name = "dgvEmail";
+            this.dgvEmail.Width = 130;
+            // 
+            // dgvMK
+            // 
+            this.dgvMK.HeaderText = "Mật Khẩu";
+            this.dgvMK.Name = "dgvMK";
+            // 
+            // dgvRole
+            // 
+            this.dgvRole.HeaderText = "Quyền";
+            this.dgvRole.Name = "dgvRole";
             // 
             // panelSapXep
             // 
@@ -116,10 +196,15 @@ namespace QLTT.Controls
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(196, 23);
             this.txtTimKiem.TabIndex = 16;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // panelChucNang
             // 
-            this.panelChucNang.Controls.Add(this.cbQuyenADMIN);
+            this.panelChucNang.Controls.Add(this.panel1);
+            this.panelChucNang.Controls.Add(this.txt_MK);
+            this.panelChucNang.Controls.Add(this.label5);
+            this.panelChucNang.Controls.Add(this.btnSua);
+            this.panelChucNang.Controls.Add(this.chkAdmin);
             this.panelChucNang.Controls.Add(this.label1);
             this.panelChucNang.Controls.Add(this.dtpNgaySinh);
             this.panelChucNang.Controls.Add(this.panel5);
@@ -136,35 +221,84 @@ namespace QLTT.Controls
             this.panelChucNang.Controls.Add(this.txtMaNV);
             this.panelChucNang.Controls.Add(this.labelMaNV);
             this.panelChucNang.Controls.Add(this.btnReset);
-            this.panelChucNang.Controls.Add(this.btnSua);
-            this.panelChucNang.Controls.Add(this.btnHuy);
             this.panelChucNang.Controls.Add(this.btnThem);
             this.panelChucNang.Controls.Add(this.btnXoa);
-            this.panelChucNang.Controls.Add(this.btnLuu);
             this.panelChucNang.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelChucNang.Location = new System.Drawing.Point(6, 55);
             this.panelChucNang.Name = "panelChucNang";
             this.panelChucNang.Size = new System.Drawing.Size(804, 231);
             this.panelChucNang.TabIndex = 3;
-            this.panelChucNang.Paint += new System.Windows.Forms.PaintEventHandler(this.panelChucNang_Paint);
             // 
-            // cbQuyenADMIN
+            // panel1
             // 
-            this.cbQuyenADMIN.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbQuyenADMIN.AutoSize = true;
-            this.cbQuyenADMIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuyenADMIN.Location = new System.Drawing.Point(471, 174);
-            this.cbQuyenADMIN.Name = "cbQuyenADMIN";
-            this.cbQuyenADMIN.Size = new System.Drawing.Size(15, 14);
-            this.cbQuyenADMIN.TabIndex = 19;
-            this.cbQuyenADMIN.UseVisualStyleBackColor = true;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Location = new System.Drawing.Point(346, 110);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 2);
+            this.panel1.TabIndex = 23;
+            // 
+            // txt_MK
+            // 
+            this.txt_MK.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_MK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
+            this.txt_MK.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_MK.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MK.ForeColor = System.Drawing.Color.White;
+            this.txt_MK.Location = new System.Drawing.Point(381, 92);
+            this.txt_MK.Multiline = true;
+            this.txt_MK.Name = "txt_MK";
+            this.txt_MK.Size = new System.Drawing.Size(169, 20);
+            this.txt_MK.TabIndex = 21;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(295, 91);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(81, 20);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Mật Khẩu:";
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSua.FlatAppearance.BorderSize = 0;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.Color.White;
+            this.btnSua.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.btnSua.IconColor = System.Drawing.Color.White;
+            this.btnSua.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSua.IconSize = 40;
+            this.btnSua.Location = new System.Drawing.Point(635, 128);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(100, 35);
+            this.btnSua.TabIndex = 20;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // chkAdmin
+            // 
+            this.chkAdmin.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chkAdmin.AutoSize = true;
+            this.chkAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAdmin.Location = new System.Drawing.Point(177, 201);
+            this.chkAdmin.Name = "chkAdmin";
+            this.chkAdmin.Size = new System.Drawing.Size(15, 14);
+            this.chkAdmin.TabIndex = 19;
+            this.chkAdmin.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(316, 168);
+            this.label1.Location = new System.Drawing.Point(26, 195);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 18;
@@ -174,11 +308,10 @@ namespace QLTT.Controls
             // 
             this.dtpNgaySinh.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(400, 111);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(400, 139);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(146, 20);
             this.dtpNgaySinh.TabIndex = 4;
-            this.dtpNgaySinh.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // panel5
             // 
@@ -194,12 +327,11 @@ namespace QLTT.Controls
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(316, 115);
+            this.label4.Location = new System.Drawing.Point(316, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 20);
             this.label4.TabIndex = 13;
             this.label4.Text = "Ngày Sinh : ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // txtMailNV
             // 
@@ -213,7 +345,6 @@ namespace QLTT.Controls
             this.txtMailNV.Name = "txtMailNV";
             this.txtMailNV.Size = new System.Drawing.Size(169, 20);
             this.txtMailNV.TabIndex = 3;
-            this.txtMailNV.Text = "nguyen duc tri";
             // 
             // panel4
             // 
@@ -229,12 +360,11 @@ namespace QLTT.Controls
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(316, 42);
+            this.label3.Location = new System.Drawing.Point(295, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "Email : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtSDT
             // 
@@ -248,7 +378,7 @@ namespace QLTT.Controls
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(109, 20);
             this.txtSDT.TabIndex = 2;
-            this.txtSDT.Text = "nguyen duc tri";
+            this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // panel3
             // 
@@ -282,7 +412,6 @@ namespace QLTT.Controls
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.Size = new System.Drawing.Size(109, 20);
             this.txtTenNV.TabIndex = 1;
-            this.txtTenNV.Text = "nguyen duc tri";
             // 
             // labelTênNV
             // 
@@ -299,17 +428,18 @@ namespace QLTT.Controls
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Enabled = false;
             this.panel2.Location = new System.Drawing.Point(56, 65);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 2);
             this.panel2.TabIndex = 12;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // txtMaNV
             // 
             this.txtMaNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMaNV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtMaNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaNV.Enabled = false;
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNV.ForeColor = System.Drawing.Color.White;
             this.txtMaNV.Location = new System.Drawing.Point(141, 46);
@@ -317,20 +447,18 @@ namespace QLTT.Controls
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Size = new System.Drawing.Size(109, 20);
             this.txtMaNV.TabIndex = 0;
-            this.txtMaNV.Text = "nguyen duc tri";
-            this.txtMaNV.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // labelMaNV
             // 
             this.labelMaNV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelMaNV.AutoSize = true;
+            this.labelMaNV.Enabled = false;
             this.labelMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMaNV.Location = new System.Drawing.Point(26, 47);
             this.labelMaNV.Name = "labelMaNV";
             this.labelMaNV.Size = new System.Drawing.Size(121, 20);
             this.labelMaNV.TabIndex = 10;
             this.labelMaNV.Text = "Mã Nhân Viên : ";
-            this.labelMaNV.Click += new System.EventHandler(this.labelMaNV_Click);
             // 
             // btnReset
             // 
@@ -343,53 +471,14 @@ namespace QLTT.Controls
             this.btnReset.IconColor = System.Drawing.Color.White;
             this.btnReset.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnReset.IconSize = 40;
-            this.btnReset.Location = new System.Drawing.Point(698, 96);
+            this.btnReset.Location = new System.Drawing.Point(635, 180);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(100, 35);
             this.btnReset.TabIndex = 9;
             this.btnReset.Text = "Reset";
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSua.FlatAppearance.BorderSize = 0;
-            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSua.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.Color.White;
-            this.btnSua.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.btnSua.IconColor = System.Drawing.Color.White;
-            this.btnSua.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSua.IconSize = 40;
-            this.btnSua.Location = new System.Drawing.Point(581, 96);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(100, 35);
-            this.btnSua.TabIndex = 8;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.BTNSua_Click);
-            // 
-            // btnHuy
-            // 
-            this.btnHuy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHuy.FlatAppearance.BorderSize = 0;
-            this.btnHuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHuy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHuy.ForeColor = System.Drawing.Color.White;
-            this.btnHuy.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.btnHuy.IconColor = System.Drawing.Color.White;
-            this.btnHuy.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnHuy.IconSize = 40;
-            this.btnHuy.Location = new System.Drawing.Point(581, 162);
-            this.btnHuy.Name = "btnHuy";
-            this.btnHuy.Size = new System.Drawing.Size(100, 35);
-            this.btnHuy.TabIndex = 10;
-            this.btnHuy.Text = "Hủy";
-            this.btnHuy.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnHuy.UseVisualStyleBackColor = true;
-            this.btnHuy.Click += new System.EventHandler(this.BTNHuy_Click);
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnThem
             // 
@@ -402,14 +491,14 @@ namespace QLTT.Controls
             this.btnThem.IconColor = System.Drawing.Color.White;
             this.btnThem.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnThem.IconSize = 40;
-            this.btnThem.Location = new System.Drawing.Point(581, 35);
+            this.btnThem.Location = new System.Drawing.Point(624, 27);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(100, 35);
+            this.btnThem.Size = new System.Drawing.Size(144, 35);
             this.btnThem.TabIndex = 6;
             this.btnThem.Text = "Thêm";
             this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.BTNThemThuoc_Click);
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -422,43 +511,14 @@ namespace QLTT.Controls
             this.btnXoa.IconColor = System.Drawing.Color.White;
             this.btnXoa.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnXoa.IconSize = 40;
-            this.btnXoa.Location = new System.Drawing.Point(698, 35);
+            this.btnXoa.Location = new System.Drawing.Point(635, 77);
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(100, 35);
             this.btnXoa.TabIndex = 7;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.BTNXoa_Click);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnLuu.FlatAppearance.BorderSize = 0;
-            this.btnLuu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnLuu.IconColor = System.Drawing.Color.White;
-            this.btnLuu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnLuu.IconSize = 40;
-            this.btnLuu.Location = new System.Drawing.Point(698, 162);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(100, 35);
-            this.btnLuu.TabIndex = 11;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLuu.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 55);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(804, 522);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // panelTieuDe
             // 
@@ -469,7 +529,6 @@ namespace QLTT.Controls
             this.panelTieuDe.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.panelTieuDe.Size = new System.Drawing.Size(804, 49);
             this.panelTieuDe.TabIndex = 0;
-            this.panelTieuDe.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTieuDe_Paint_1);
             // 
             // labelTieuDe
             // 
@@ -494,12 +553,13 @@ namespace QLTT.Controls
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Nhân Viên";
+            this.Load += new System.EventHandler(this.QuanLyNhanVien_Load);
             this.panelNoiDung.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_NV)).EndInit();
             this.panelSapXep.ResumeLayout(false);
             this.panelSapXep.PerformLayout();
             this.panelChucNang.ResumeLayout(false);
             this.panelChucNang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelTieuDe.ResumeLayout(false);
             this.panelTieuDe.PerformLayout();
             this.ResumeLayout(false);
@@ -509,10 +569,7 @@ namespace QLTT.Controls
         #endregion
         private System.Windows.Forms.Panel panelNoiDung;
         private System.Windows.Forms.Panel panelTieuDe;
-        private FontAwesome.Sharp.IconButton btnSua;
-        private FontAwesome.Sharp.IconButton btnHuy;
         private FontAwesome.Sharp.IconButton btnXoa;
-        private FontAwesome.Sharp.IconButton btnLuu;
         private FontAwesome.Sharp.IconButton btnThem;
         private System.Windows.Forms.Panel panelChucNang;
         private FontAwesome.Sharp.IconButton btnReset;
@@ -531,11 +588,22 @@ namespace QLTT.Controls
         private System.Windows.Forms.TextBox txtTenNV;
         private System.Windows.Forms.Label labelTênNV;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.CheckBox cbQuyenADMIN;
+        private System.Windows.Forms.CheckBox chkAdmin;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelSapXep;
         private FontAwesome.Sharp.IconButton btnTimKiem;
         private System.Windows.Forms.TextBox txtTimKiem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgv_NV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvTenNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvNS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvSDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvMK;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRole;
+        private FontAwesome.Sharp.IconButton btnSua;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txt_MK;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -8,12 +8,12 @@ namespace QLTT.DTO
 {
     public class ThuocDTO
     {
-        public string MaThuoc;
-        public string MaLoai;
-        public string TenThuoc;
-        public int DonGia;
-        public int SoLuong;
-        public string MoTa;
+        public string MaThuoc { get; set; }
+        public string MaLoai { get; set; }
+        public string TenThuoc { get; set; }
+        public int DonGia { get; set; }
+        public int SoLuong { get; set; }
+        public string MoTa { get; set; }
 
     }
 }
