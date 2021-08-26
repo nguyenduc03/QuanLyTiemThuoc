@@ -29,39 +29,58 @@ namespace QLTT.Common
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelDangNhap = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.IconMatKhau = new FontAwesome.Sharp.IconPictureBox();
-            this.iconDangNhap = new FontAwesome.Sharp.IconPictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.iconDangNhap = new FontAwesome.Sharp.IconPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.txtTenDN = new System.Windows.Forms.TextBox();
+            this.txtUserID = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new FontAwesome.Sharp.IconButton();
             this.labelDangNhap = new System.Windows.Forms.Label();
             this.ThongTinNSX = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panelDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconMatKhau)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconDangNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelDangNhap
             // 
             this.panelDangNhap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.panelDangNhap.Controls.Add(this.label2);
             this.panelDangNhap.Controls.Add(this.IconMatKhau);
-            this.panelDangNhap.Controls.Add(this.iconDangNhap);
+            this.panelDangNhap.Controls.Add(this.label1);
+            this.panelDangNhap.Controls.Add(this.txtMatKhau);
             this.panelDangNhap.Controls.Add(this.panel3);
+            this.panelDangNhap.Controls.Add(this.iconDangNhap);
             this.panelDangNhap.Controls.Add(this.panel2);
             this.panelDangNhap.Controls.Add(this.Logo);
-            this.panelDangNhap.Controls.Add(this.txtMatKhau);
-            this.panelDangNhap.Controls.Add(this.txtTenDN);
+            this.panelDangNhap.Controls.Add(this.txtUserID);
             this.panelDangNhap.Controls.Add(this.btnDangNhap);
             this.panelDangNhap.Controls.Add(this.labelDangNhap);
-            this.panelDangNhap.Location = new System.Drawing.Point(295, 65);
+            this.panelDangNhap.Location = new System.Drawing.Point(12, 69);
             this.panelDangNhap.Name = "panelDangNhap";
             this.panelDangNhap.Size = new System.Drawing.Size(408, 417);
             this.panelDangNhap.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(122, 188);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Mã Nhân Viên";
             // 
             // IconMatKhau
             // 
@@ -70,11 +89,45 @@ namespace QLTT.Common
             this.IconMatKhau.IconColor = System.Drawing.Color.White;
             this.IconMatKhau.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.IconMatKhau.IconSize = 35;
-            this.IconMatKhau.Location = new System.Drawing.Point(84, 253);
+            this.IconMatKhau.Location = new System.Drawing.Point(84, 263);
             this.IconMatKhau.Name = "IconMatKhau";
             this.IconMatKhau.Size = new System.Drawing.Size(40, 35);
-            this.IconMatKhau.TabIndex = 8;
+            this.IconMatKhau.TabIndex = 12;
             this.IconMatKhau.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(122, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 20);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Mật Khẩu";
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.BackColor = System.Drawing.Color.White;
+            this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatKhau.ForeColor = System.Drawing.Color.Gray;
+            this.txtMatKhau.Location = new System.Drawing.Point(126, 274);
+            this.txtMatKhau.Multiline = true;
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '*';
+            this.txtMatKhau.Size = new System.Drawing.Size(186, 24);
+            this.txtMatKhau.TabIndex = 11;
+            this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtMatKhau_Validating);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.Location = new System.Drawing.Point(97, 304);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 2);
+            this.panel3.TabIndex = 10;
             // 
             // iconDangNhap
             // 
@@ -83,24 +136,16 @@ namespace QLTT.Common
             this.iconDangNhap.IconColor = System.Drawing.Color.White;
             this.iconDangNhap.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconDangNhap.IconSize = 35;
-            this.iconDangNhap.Location = new System.Drawing.Point(84, 194);
+            this.iconDangNhap.Location = new System.Drawing.Point(84, 207);
             this.iconDangNhap.Name = "iconDangNhap";
             this.iconDangNhap.Size = new System.Drawing.Size(40, 35);
             this.iconDangNhap.TabIndex = 7;
             this.iconDangNhap.TabStop = false;
             // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(101, 288);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 2);
-            this.panel3.TabIndex = 2;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Location = new System.Drawing.Point(101, 229);
+            this.panel2.Location = new System.Drawing.Point(101, 242);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 2);
             this.panel2.TabIndex = 1;
@@ -117,34 +162,19 @@ namespace QLTT.Common
             this.Logo.TabIndex = 6;
             this.Logo.TabStop = false;
             // 
-            // txtMatKhau
+            // txtUserID
             // 
-            this.txtMatKhau.BackColor = System.Drawing.Color.White;
-            this.txtMatKhau.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMatKhau.ForeColor = System.Drawing.Color.Gray;
-            this.txtMatKhau.Location = new System.Drawing.Point(130, 258);
-            this.txtMatKhau.Multiline = true;
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(186, 24);
-            this.txtMatKhau.TabIndex = 5;
-            this.txtMatKhau.Text = "Mật khẩu";
-            // 
-            // txtTenDN
-            // 
-            this.txtTenDN.BackColor = System.Drawing.Color.White;
-            this.txtTenDN.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTenDN.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenDN.ForeColor = System.Drawing.Color.Gray;
-            this.txtTenDN.HideSelection = false;
-            this.txtTenDN.Location = new System.Drawing.Point(130, 198);
-            this.txtTenDN.Multiline = true;
-            this.txtTenDN.Name = "txtTenDN";
-            this.txtTenDN.Size = new System.Drawing.Size(186, 24);
-            this.txtTenDN.TabIndex = 4;
-            this.txtTenDN.Text = " Tên Đăng Nhập ";
-            this.txtTenDN.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtUserID.BackColor = System.Drawing.Color.White;
+            this.txtUserID.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUserID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserID.ForeColor = System.Drawing.Color.Gray;
+            this.txtUserID.HideSelection = false;
+            this.txtUserID.Location = new System.Drawing.Point(126, 211);
+            this.txtUserID.Multiline = true;
+            this.txtUserID.Name = "txtUserID";
+            this.txtUserID.Size = new System.Drawing.Size(186, 24);
+            this.txtUserID.TabIndex = 4;
+            this.txtUserID.Validating += new System.ComponentModel.CancelEventHandler(this.txtTaiKhoan_Validating);
             // 
             // btnDangNhap
             // 
@@ -157,13 +187,14 @@ namespace QLTT.Common
             this.btnDangNhap.IconColor = System.Drawing.Color.White;
             this.btnDangNhap.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnDangNhap.IconSize = 40;
-            this.btnDangNhap.Location = new System.Drawing.Point(122, 311);
+            this.btnDangNhap.Location = new System.Drawing.Point(119, 354);
             this.btnDangNhap.Name = "btnDangNhap";
             this.btnDangNhap.Size = new System.Drawing.Size(169, 37);
             this.btnDangNhap.TabIndex = 3;
             this.btnDangNhap.Text = "Đăng Nhập";
             this.btnDangNhap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDangNhap.UseVisualStyleBackColor = false;
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // labelDangNhap
             // 
@@ -184,11 +215,15 @@ namespace QLTT.Common
             this.ThongTinNSX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ThongTinNSX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ThongTinNSX.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ThongTinNSX.Location = new System.Drawing.Point(752, 532);
+            this.ThongTinNSX.Location = new System.Drawing.Point(197, 532);
             this.ThongTinNSX.Name = "ThongTinNSX";
             this.ThongTinNSX.Size = new System.Drawing.Size(221, 20);
             this.ThongTinNSX.TabIndex = 9;
             this.ThongTinNSX.Text = "Power by Gà Mờ Tập Code";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // DangNhap
             // 
@@ -197,22 +232,22 @@ namespace QLTT.Common
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(108)))), ((int)(((byte)(103)))));
             this.BackgroundImage = global::QLTT.Properties.Resources.banner1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(429, 561);
             this.Controls.Add(this.ThongTinNSX);
             this.Controls.Add(this.panelDangNhap);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1000, 600);
+            this.MaximumSize = new System.Drawing.Size(445, 600);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1000, 600);
+            this.MinimumSize = new System.Drawing.Size(445, 600);
             this.Name = "DangNhap";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.DangNhap_Load);
             this.panelDangNhap.ResumeLayout(false);
             this.panelDangNhap.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.IconMatKhau)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconDangNhap)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -221,15 +256,18 @@ namespace QLTT.Common
         #endregion
 
         private System.Windows.Forms.Panel panelDangNhap;
-        private System.Windows.Forms.TextBox txtMatKhau;
-        private System.Windows.Forms.TextBox txtTenDN;
+        private System.Windows.Forms.TextBox txtUserID;
         private FontAwesome.Sharp.IconButton btnDangNhap;
         private System.Windows.Forms.Label labelDangNhap;
         private System.Windows.Forms.PictureBox Logo;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private FontAwesome.Sharp.IconPictureBox IconMatKhau;
         private FontAwesome.Sharp.IconPictureBox iconDangNhap;
         private System.Windows.Forms.Label ThongTinNSX;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconPictureBox IconMatKhau;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtMatKhau;
+        private System.Windows.Forms.Panel panel3;
     }
 }

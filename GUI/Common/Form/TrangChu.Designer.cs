@@ -41,6 +41,7 @@ namespace QLTT.Common
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.Titel);
             this.panel1.Controls.Add(this.ThongTinNSX);

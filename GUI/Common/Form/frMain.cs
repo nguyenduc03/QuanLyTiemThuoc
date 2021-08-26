@@ -1,6 +1,7 @@
 ﻿using FontAwesome.Sharp;
 using QLTT.Common;
 using QLTT.Controls.Admin;
+using QLTT.DataAccessLayer.Enities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,23 +19,20 @@ namespace QLTT.Controls.User
         private IconButton CurrentBTN = new IconButton();
 
         private Form CurrentChildForm;
-        public UserForm()
+
+        private DangNhap dangNhap;
+
+        private NhanVien nhanVien;
+        public UserForm(NhanVien nv, DangNhap temp)
         {
             InitializeComponent();
             OpenChildForm(new TrangChu());
             ShowCurrentBTN(btnTrangChu, ClassColor.color1);
-
+            this.nhanVien = nv;
+            this.dangNhap = temp;
+            this.dangNhap.loginSucess += FrmLogin_loginSucess;
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-
-        }
         private  void OpenChildForm (Form ChildForm)
         {
             if (CurrentChildForm !=null)
@@ -115,6 +113,36 @@ namespace QLTT.Controls.User
         {
             OpenChildForm(new ThongKe());
             ShowCurrentBTN(sender, ClassColor.color5);
+        }
+
+        private void FrmLogin_loginSucess()
+        {
+            initMenu(bool.Parse(nhanVien.Role.ToString()));
+        }
+
+        private void initMenu(bool role)
+        {
+            btnQuanLyNV.Visible = role;
+            btnThongke.Visible = role;
+            btnTrangChu.Visible = true;
+            btnLapHoaDon.Visible = true;
+            btnSanPham.Visible = true;
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.dangNhap.Show();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString("HH:mm");
+            lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }
