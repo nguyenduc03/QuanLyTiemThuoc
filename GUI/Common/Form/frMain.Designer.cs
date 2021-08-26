@@ -29,6 +29,7 @@ namespace QLTT.Controls.User
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.panel_Menu = new System.Windows.Forms.Panel();
             this.btnQuanLyNV = new FontAwesome.Sharp.IconButton();
@@ -48,6 +49,7 @@ namespace QLTT.Controls.User
             this.panelTitle = new System.Windows.Forms.Panel();
             this.IconCurrent = new FontAwesome.Sharp.IconPictureBox();
             this.LabellTiTle = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -278,7 +280,7 @@ namespace QLTT.Controls.User
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbDate.Location = new System.Drawing.Point(190, 60);
+            this.lbDate.Location = new System.Drawing.Point(207, 60);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(159, 30);
             this.lbDate.TabIndex = 12;
@@ -332,6 +334,12 @@ namespace QLTT.Controls.User
             this.LabellTiTle.TabIndex = 1;
             this.LabellTiTle.Text = "Trang Chủ";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -383,5 +391,6 @@ namespace QLTT.Controls.User
         private FontAwesome.Sharp.IconPictureBox IconCurrent;
         private FontAwesome.Sharp.IconButton btnQuanLyNV;
         private FontAwesome.Sharp.IconButton btnThongke;
+        private System.Windows.Forms.Timer timer1;
     }
 }
