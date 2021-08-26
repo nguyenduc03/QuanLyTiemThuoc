@@ -382,6 +382,7 @@ namespace QLTT.Controls
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
             this.dgvDanhMucThuoc.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDanhMucThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhMucThuoc.Size = new System.Drawing.Size(790, 200);
             this.dgvDanhMucThuoc.TabIndex = 0;
             this.dgvDanhMucThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMucThuoc_CellClick);

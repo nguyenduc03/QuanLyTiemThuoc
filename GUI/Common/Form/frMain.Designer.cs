@@ -278,7 +278,7 @@ namespace QLTT.Controls.User
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbDate.Location = new System.Drawing.Point(194, 60);
+            this.lbDate.Location = new System.Drawing.Point(190, 60);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(159, 30);
             this.lbDate.TabIndex = 12;
@@ -346,6 +346,8 @@ namespace QLTT.Controls.User
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tiệm Thuốc";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_FormClosed);
+            this.Load += new System.EventHandler(this.UserForm_Load);
             this.panel_Menu.ResumeLayout(false);
             this.panel_Menu.PerformLayout();
             this.panel1.ResumeLayout(false);

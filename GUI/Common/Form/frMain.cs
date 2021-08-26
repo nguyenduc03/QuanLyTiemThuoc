@@ -132,7 +132,17 @@ namespace QLTT.Controls.User
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
             this.dangNhap.Show();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString("HH:mm");
+            lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

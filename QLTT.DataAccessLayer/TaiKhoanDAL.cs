@@ -9,14 +9,14 @@ namespace QLTT.DataAccessLayer
 {
     public class TaiKhoanDAL
     {
-        public bool KiemTraDangNhap(string useremail, string password, out string error)
+        public bool KiemTraDangNhap(string userID, string password, out string error)
         {
             error = string.Empty;
             try
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    return dbcontext.NhanViens.Any(nv => nv.Email == useremail && nv.MatKhau == password);
+                    return dbcontext.NhanViens.Any(nv => nv.MaNV == userID && nv.MatKhau == password);
                 }
             }
             catch (Exception exception)
@@ -27,14 +27,14 @@ namespace QLTT.DataAccessLayer
         }
 
 
-        public NhanVien layTaiKhoan(string useremail, string password, out string error)
+        public NhanVien layTaiKhoan(string userID, string password, out string error)
         {
             error = string.Empty;
             try
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    return dbcontext.NhanViens.Where(nv => nv.Email == useremail && nv.MatKhau == password).FirstOrDefault();
+                    return dbcontext.NhanViens.Where(nv => nv.MaNV == userID && nv.MatKhau == password).FirstOrDefault();
                 }
             }
             catch (Exception ex)

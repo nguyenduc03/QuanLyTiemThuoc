@@ -30,10 +30,10 @@ namespace QLTT.Common
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             //nhận thông tin nhập vào
-            string userEmail = this.txtEmail.Text.Trim();
+            string userID = this.txtUserID.Text.Trim();
             string userMatKhau = this.txtMatKhau.Text.Trim();
             //kiểm tra rỗng
-            if (userEmail == "" || userMatKhau == "")
+            if (userID == "" || userMatKhau == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy dủ thông tin");
                 return;
@@ -41,10 +41,10 @@ namespace QLTT.Common
 
             //kiểm tra tài khoản trong database
             string error = "";
-            if (_taiKhoanBAL.KiemTraDangNhap(userEmail, userMatKhau, out error))
+            if (_taiKhoanBAL.KiemTraDangNhap(userID, userMatKhau, out error))
             {
                 QLTTModel dbcontext = new QLTTModel();
-                NhanVien nv = _taiKhoanBAL.layTaiKhoan(userEmail, userMatKhau, out error);
+                NhanVien nv = _taiKhoanBAL.layTaiKhoan(userID, userMatKhau, out error);
                 UserForm frm = new UserForm(nv, this);
                 loginSucess();
                 MessageBox.Show("đăng nhập thành công!");

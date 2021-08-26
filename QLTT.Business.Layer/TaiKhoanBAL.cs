@@ -19,9 +19,9 @@ namespace QLTT.BusinessAccessLayer
         }
 
         //kiểm tra đăng nhập
-        public bool KiemTraDangNhap(string useremail, string password, out string error)
+        public bool KiemTraDangNhap(string userID, string password, out string error)
         {
-            return _taiKhoanDAL.KiemTraDangNhap(useremail, MD5Hash(password), out error);
+            return _taiKhoanDAL.KiemTraDangNhap(userID, MD5Hash(password), out error);
         }
 
         //mã hoá mật khẩu
@@ -48,9 +48,9 @@ namespace QLTT.BusinessAccessLayer
 
 
         //lấy tài khoản
-        public NhanVien layTaiKhoan(string userEmail, string password, out string error)
+        public NhanVien layTaiKhoan(string userID, string password, out string error)
         {
-            return _taiKhoanDAL.layTaiKhoan(userEmail, MD5Hash(password), out error);
+            return _taiKhoanDAL.layTaiKhoan(userID, MD5Hash(password), out error);
         }
     }
 }
