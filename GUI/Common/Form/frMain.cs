@@ -141,7 +141,12 @@ namespace QLTT.Controls.User
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            lbTime.Text = DateTime.Now.ToString("HH:mm");
+            timer1_Tick(sender, e);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss");
             lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
