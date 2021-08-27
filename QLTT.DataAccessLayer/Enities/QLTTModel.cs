@@ -15,7 +15,6 @@ namespace QLTT.DataAccessLayer.Enities
 
         public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
-        public virtual DbSet<LoaiThuoc> LoaiThuocs { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
@@ -31,10 +30,6 @@ namespace QLTT.DataAccessLayer.Enities
                 .WithRequired(e => e.HoaDon)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<LoaiThuoc>()
-                .Property(e => e.MaLoai)
-                .IsUnicode(false);
-
             modelBuilder.Entity<NhanVien>()
                 .Property(e => e.Email)
                 .IsUnicode(false);
@@ -48,12 +43,9 @@ namespace QLTT.DataAccessLayer.Enities
                 .IsUnicode(false);
 
             modelBuilder.Entity<Thuoc>()
-                .Property(e => e.MaLoai)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Thuoc>()
-                .HasOptional(e => e.CTHD)
-                .WithRequired(e => e.Thuoc);
+                .HasMany(e => e.CTHDs)
+                .WithRequired(e => e.Thuoc)
+                .WillCascadeOnDelete(false);
         }
     }
 }

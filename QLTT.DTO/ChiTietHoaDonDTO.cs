@@ -8,6 +8,7 @@ namespace QLTT.DTO
 {
     public class ChiTietHoaDonDTO
     {
+        public int Id { get; set; }
         public int MaHoaDon { get; set; }
         public string TenThuoc { get; set; }
         public int SoLuongMua { get; set; }

@@ -9,15 +9,17 @@ namespace QLTT.DataAccessLayer.Enities
     [Table("CTHD")]
     public partial class CTHD
     {
-        [Key]
-        [StringLength(50)]
-        public string MaThuoc { get; set; }
+        public int Id { get; set; }
 
         public int MaHD { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string MaThuoc { get; set; }
+
         public int? SoLuongMua { get; set; }
 
-        public int? GiaTien { get; set; }
+        public int? DonGia { get; set; }
 
         public virtual HoaDon HoaDon { get; set; }
 

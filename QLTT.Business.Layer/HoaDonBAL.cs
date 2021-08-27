@@ -23,7 +23,49 @@ namespace QLTT.BusinessAccessLayer
         }
         public bool LuuHoaDon(HoaDon hoaDon, out string error)
         {
-            return _hoaDonDAL.TaoMoiHoaDon(hoaDon, out error);
+            error = string.Empty;
+            try
+            {
+                //cập nhật
+                if (hoaDon.MaHD > 0)
+                {
+                    if (!_hoaDonDAL.CapNhatHD(hoaDon, out error))
+                    {
+                        return false;
+                    }
+                }
+                //tạo mới
+                else
+                {
+                    if (!_hoaDonDAL.TaoMoiHoaDon(hoaDon, out error))
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            return true;
+        }
+
+        public bool xoaHD(HoaDon hoaDon, out string error)
+        {
+            try
+            {
+                if (!_hoaDonDAL.xoaHD(hoaDon, out error))
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            return true;
         }
 
         public bool KiemTraHoaDonByMaNhanVien(int maNV)

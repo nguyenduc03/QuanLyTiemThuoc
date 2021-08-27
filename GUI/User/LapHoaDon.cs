@@ -1,6 +1,9 @@
 ﻿
 using QLTT.BusinessAccessLayer;
+using QLTT.Controls.Admin;
+using QLTT.DataAccessLayer.Enities;
 using QLTT.DTO;
+using QLTT.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +22,9 @@ namespace QLTT
         private readonly ChiTietHoaDonBAL _chiTietHoaDonBAL;
         private readonly NhanVienBAL _nhanVienBAL;
         private readonly ThuocBAL _thuocBAL;
+        int maHoaDon;
+
+
         public LapHoaDon()
         {
             InitializeComponent();
@@ -36,7 +42,7 @@ namespace QLTT
         }
         private void Tai_cbbNV()
         {
-            cbbMaNV.DisplayMember ="TenNV";
+            cbbMaNV.DisplayMember = "TenNV";
             cbbMaNV.ValueMember = "MaNV";
             List<NhanVienDTO> dsNV = _nhanVienBAL.LayDanhSachNV();
             cbbMaNV.DataSource = dsNV;
@@ -48,6 +54,11 @@ namespace QLTT
             cbbMaThuoc.ValueMember = "MaThuoc";
             List<ThuocDTO> dsThuoc = _thuocBAL.LayDanhSachThuoc();
             cbbMaThuoc.DataSource = dsThuoc;
+        }
+
+        public void reload()
+        {
+            TaiDanhSachHoaDon();
         }
 
         private void TaiDanhSachHoaDon()
@@ -75,34 +86,37 @@ namespace QLTT
             foreach (var item in dsCTHD)
             {
                 int index = dgv_CTHD.Rows.Add();
-                dgv_CTHD.Rows[index].Cells[0].Value = item.MaHoaDon;              
-                dgv_CTHD.Rows[index].Cells[1].Value = item.SoLuongMua;
-                dgv_CTHD.Rows[index].Cells[2].Value = item.TenThuoc;
-                dgv_CTHD.Rows[index].Cells[3].Value = item.GiaTien;
+                dgv_CTHD.Rows[index].Cells[0].Value = item.Id;
+                dgv_CTHD.Rows[index].Cells[1].Value = item.MaHoaDon;
+                dgv_CTHD.Rows[index].Cells[2].Value = item.SoLuongMua;
+                dgv_CTHD.Rows[index].Cells[3].Value = item.TenThuoc;
+                dgv_CTHD.Rows[index].Cells[4].Value = item.GiaTien;
 
             }
         }
 
         private void dgv_HoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-           
+
             try
             {
                 if (dgv_HoaDon.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
                 {
-                   
+
                     dgv_HoaDon.CurrentRow.Selected = true;
 
-                    txtMaHD.Text = dgv_HoaDon.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();                 
+                    txtMaHD.Text = dgv_HoaDon.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
                     dtpNgayBan.Value = Convert.ToDateTime(dgv_HoaDon.Rows[e.RowIndex].Cells[1].FormattedValue.ToString());
-                    txtTongTien.Text = dgv_HoaDon.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                    //  txtTongTien.Text = dgv_HoaDon.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
                     cbbMaNV.SelectedIndex = cbbMaNV.FindString(dgv_HoaDon.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
 
+                    //Search CTHD
                     int rowIndex = e.RowIndex;
-                    int maHoaDon = int.Parse(dgv_HoaDon.Rows[rowIndex].Cells[0].Value.ToString());
+                    maHoaDon = int.Parse(dgv_HoaDon.Rows[rowIndex].Cells[0].Value.ToString());
                     List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = _chiTietHoaDonBAL.GetChiTietHoaDonsByMaHoaDon(maHoaDon);
                     fillDGV_CTHD(chiTietHoaDonDTOs);
-                    
+                    TongTien();
+
                 }
             }
             catch (Exception)
@@ -128,15 +142,13 @@ namespace QLTT
                 {
                     dgv_CTHD.CurrentRow.Selected = true;
 
-                    txtMaHD.Text = dgv_CTHD.Rows[e.RowIndex].Cells[0].FormattedValue.ToString();
-                    txtSoLuong.Text = dgv_CTHD.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();                  
-                    cbbMaThuoc.SelectedIndex = cbbMaThuoc.FindString(dgv_CTHD.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
-                    txtDonGia.Text = dgv_CTHD.Rows[e.RowIndex].Cells[3].FormattedValue.ToString();
-
-                    int rowIndex = e.RowIndex;
-                  //  int maHoaDon = int.Parse(dgv_HoaDon.Rows[rowIndex].Cells[0].Value.ToString());
-
-
+                    txtMaHD.Text = dgv_CTHD.Rows[e.RowIndex].Cells[1].FormattedValue.ToString();
+                    txtSoLuong.Text = dgv_CTHD.Rows[e.RowIndex].Cells[2].FormattedValue.ToString();
+                    cbbMaThuoc.SelectedIndex = cbbMaThuoc.FindString(dgv_CTHD.Rows[e.RowIndex].Cells[3].FormattedValue.ToString());
+                    txtDonGia.Text = dgv_CTHD.Rows[e.RowIndex].Cells[4].FormattedValue.ToString();
+                    int sl = int.Parse(dgv_CTHD.Rows[e.RowIndex].Cells[2].FormattedValue.ToString());
+                    int dongia = int.Parse(dgv_CTHD.Rows[e.RowIndex].Cells[4].FormattedValue.ToString());
+                    txtThanhTien.Text = (sl * dongia).ToString();
                 }
             }
             catch (Exception)
@@ -145,9 +157,124 @@ namespace QLTT
             }
         }
 
+
         private void btnThem_Click(object sender, EventArgs e)
         {
+            string error;
+            HoaDon hd = new HoaDon();
 
+
+            hd.MaNV = Convert.ToInt32(cbbMaNV.SelectedValue.ToString());
+            hd.NgayLap = (DateTime)dtpNgayBan.Value;
+            hd.TongTien = int.Parse(txtTongTien.Text);
+
+            if (_hoaDonBAL.LuuHoaDon(hd, out error))
+            {
+                MessageBox.Show("Thêm thành công!");
+                TaiDanhSachHoaDon();
+                clear();
+                TongTien();
+            }
+            else
+            {
+                MessageBox.Show("Thêm mới không thành công! " + error);
+            }
+
+
+        }
+
+        void TongTien()
+        {
+            int sCount = 0;
+            for (int i = 0; i < dgv_CTHD.Rows.Count; i++)
+            {
+                if (dgv_CTHD.Rows[i].Cells[4].Value != null)
+                {
+                    sCount += int.Parse(dgv_CTHD.Rows[i].Cells[4].Value.ToString()) * int.Parse(dgv_CTHD.Rows[i].Cells[2].Value.ToString());
+                }
+            }
+            txtTongTien.Text = sCount.ToString();
+        }
+
+        private void btnChiTiet_Click(object sender, EventArgs e)
+        {
+            if (txtMaHD.Text == "")
+            {
+                MessageBox.Show("Vui Lòng chọn Hóa Đơn");
+            }
+            else
+            {
+                ChiTietHoaDon frm = new ChiTietHoaDon();
+                frm.cthdDelegate(txtMaHD.Text);
+                frm.Show();
+
+                // dgv_CTHD.Rows.Clear();
+                this.Close();
+            }
+
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            if (maHoaDon == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một nhân viên!");
+                return;
+            }
+            else
+            {
+
+                string error;
+                HoaDon hd = new HoaDon();
+                hd.MaNV = Convert.ToInt32(cbbMaNV.SelectedValue.ToString());
+                hd.NgayLap = (DateTime)dtpNgayBan.Value;
+                hd.TongTien = int.Parse(txtTongTien.Text);
+                hd.MaHD = maHoaDon;
+
+                if (_hoaDonBAL.LuuHoaDon(hd, out error))
+                {
+
+                    TaiDanhSachHoaDon();
+                    clear();
+                    TongTien();
+                }
+                else
+                {
+                    MessageBox.Show("Cập nhật không thành công! " + error);
+                }
+
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+            if (maHoaDon == 0)
+            {
+                MessageBox.Show("vui lòng chọn hóa đơn  cần xoá");
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show($"Chắc chắn xoá hóa đơn này không?",
+                    "Bạn đang xóa 1 hóa đơn ....", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
+                {
+                    string error;
+                    HoaDon hd = new HoaDon();
+                    hd.MaHD = maHoaDon;
+                    if (_hoaDonBAL.xoaHD(hd, out error))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        TaiDanhSachHoaDon();
+                        clear();
+                        TongTien();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xóa không thành công! " + error);
+                    }
+                }
+            }
         }
     }
 }

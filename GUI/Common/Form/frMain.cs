@@ -109,8 +109,7 @@ namespace QLTT.Controls.User
 
         private void BTNThongKe_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new ThongKe());
-            ShowCurrentBTN(sender, ClassColor.color5);
+            MessageBox.Show("Nothing here");
         }
 
         private void btnDangNhap2_Click(object sender, EventArgs e)

@@ -76,11 +76,11 @@
     <Compile Include="GUI\Admin\QuanLyNhanVien.Designer.cs">
       <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\Admin\ThongKe.cs">
+    <Compile Include="GUI\Admin\ChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Admin\ThongKe.Designer.cs">
-      <DependentUpon>ThongKe.cs</DependentUpon>
+    <Compile Include="GUI\Admin\ChiTietHoaDon.Designer.cs">
+      <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\Common\Form\frMain.cs">
       <SubType>Form</SubType>
@@ -100,6 +100,7 @@
     <Compile Include="GUI\User\LapHoaDon.Designer.cs">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CTHDDelegate.cs" />
     <Compile Include="Helpers\LoginSuccessDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,8 +110,8 @@
     <EmbeddedResource Include="GUI\Common\Form\TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\Admin\ThongKe.resx">
-      <DependentUpon>ThongKe.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\Admin\ChiTietHoaDon.resx">
+      <DependentUpon>ChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\Common\Form\frMain.resx">
       <DependentUpon>frMain.cs</DependentUpon>

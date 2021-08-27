@@ -36,22 +36,7 @@ namespace QLTT.DataAccessLayer
             }
         }
 
-        public bool timKiemHD(int maHD, string error)
-        {
-            error = string.Empty;
-            try
-            {
-                using (var dbcontext = new QLTTModel())
-                {
-                    return dbcontext.HoaDons.Any(nv => nv.MaHD == maHD);
-                }
-            }
-            catch (Exception ex)
-            {
-                error = ex.Message;
-                return false;
-            }
-        }
+   
 
         public bool TaoMoiHoaDon(HoaDon hoaDon, out string error)
         {
@@ -109,7 +94,7 @@ namespace QLTT.DataAccessLayer
                     var HDUpdate = dbcontext.HoaDons.Find(hd.MaHD);
                     if (HDUpdate == null)
                     {
-                        error = "Không tìm thấy nhân viên";
+                        error = "Không tìm thấy hóa đơn";
                         return false;
                     }
                     HDUpdate.NgayLap = hd.NgayLap;
@@ -125,7 +110,6 @@ namespace QLTT.DataAccessLayer
                 error = ex.Message;
                 return false;
             }
-
 
         }
 
