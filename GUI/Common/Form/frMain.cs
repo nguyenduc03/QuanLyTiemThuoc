@@ -10,6 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QLTT.DataAccessLayer.Enities;
+using QLTT.Helpers;
+using QLTT.BusinessAccessLayer;
+using QLTT.DTO;
 
 namespace QLTT.Controls.User
 {
@@ -18,22 +22,36 @@ namespace QLTT.Controls.User
         private IconButton CurrentBTN = new IconButton();
 
         private Form CurrentChildForm;
-        public UserForm()
+
+        private DangNhap dangNhap;
+
+        private NhanVien nhanVien;
+
+        public getDelegate getMaNVDelegate;
+        private readonly NhanVienBAL _nhanVienBAL;
+        public UserForm(NhanVien nv, DangNhap temp)
         {
             InitializeComponent();
+
+            getMaNVDelegate = new getDelegate(GetMessage);
+
+            _nhanVienBAL = new NhanVienBAL();
+
             OpenChildForm(new TrangChu());
             ShowCurrentBTN(btnTrangChu, ClassColor.color1);
-
+            this.nhanVien = nv;
+            this.dangNhap = temp;
+            this.dangNhap.loginSucess += FrmLogin_loginSucess;
         }
 
-
-        private void UserForm_Load(object sender, EventArgs e)
+        private void GetMessage(string Message)
         {
-            initMenu(false);
+            lblUser.Text = Message;
         }
-        private  void OpenChildForm (Form ChildForm)
+
+        private void OpenChildForm(Form ChildForm)
         {
-            if (CurrentChildForm !=null)
+            if (CurrentChildForm != null)
             {
                 CurrentChildForm.Close();
             }
@@ -87,7 +105,9 @@ namespace QLTT.Controls.User
 
         private void BTNLapHoaDon_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new LapHoaDon());
+            LapHoaDon f = new LapHoaDon(this);
+            f.getMaNVDelegate(lblUser.Text);
+            OpenChildForm(f);
             ShowCurrentBTN(sender, ClassColor.color2);
 
 
@@ -107,49 +127,66 @@ namespace QLTT.Controls.User
             ShowCurrentBTN(sender, ClassColor.color4);
         }
 
+        public void showChiTiet(string maHD)
+        {
+            ChiTietHoaDon frm = new ChiTietHoaDon(this);
+            frm.getMaHDDelegate(maHD);
+            OpenChildForm(frm);
+        }
+
+        public void showLapHoaDon(UserForm x)
+        {
+            OpenChildForm(new LapHoaDon(this));
+        }
+
         private void BTNThongKe_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Nothing here");
         }
 
-        private void btnDangNhap2_Click(object sender, EventArgs e)
-        {
-            Form frm = this.MdiChildren.OfType<DangNhap>().FirstOrDefault();
-            if(frm == null)
-            {
-                DangNhap frmLogin = new DangNhap();
-                frmLogin.loginSucess += FrmLogin_loginSucess;
-                frmLogin.Show();
-            }
-            else
-            {
-                frm.Activate();
-            }
-        }
 
         private void FrmLogin_loginSucess()
         {
-            initMenu(true);
+            initMenu(bool.Parse(nhanVien.Role.ToString()));
         }
 
-        private void initMenu(bool login)
+        private void initMenu(bool role)
         {
-            btnTrangChu.Enabled = login;
-            pnContent.Enabled = login;
-            btnLapHoaDon.Enabled = login;
-            btnQuanLyNV.Enabled = login;
-            btnSanPham.Enabled = login;
-            btnThongke.Enabled = login;
-            btnDangXuat.Enabled = login;
-            btnDangNhap2.Enabled = !login;
+            btnSanPham.Visible = role;
+            btnQuanLyNV.Visible = role;
+            btnTrangChu.Visible = true;
+            btnLapHoaDon.Visible = true;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            initMenu(false);
-            DangNhap frmLogin = new DangNhap();
-            frmLogin.loginSucess += FrmLogin_loginSucess;
-            frmLogin.Show();
+            this.Close();
+        }
+
+        private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.dangNhap.Show();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            timer1_Tick(sender, e);
+            loadNV();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
+
+        private void loadNV()
+        {
+            List<NhanVienDTO> dsNV = _nhanVienBAL.LayDanhSachNV();
+            var nv = (from s in dsNV
+                      where s.MaNV == int.Parse(lblUser.Text)
+                      select s).First();
+            lbl_Name.Text = nv.TenNV.ToString();
         }
     }
 }

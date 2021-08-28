@@ -29,12 +29,14 @@ namespace QLTT.Common
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Titel = new System.Windows.Forms.Label();
             this.ThongTinNSX = new System.Windows.Forms.Label();
             this.lbDate = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,6 @@ namespace QLTT.Common
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(836, 528);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // Titel
             // 
@@ -61,12 +62,11 @@ namespace QLTT.Common
             this.Titel.AutoSize = true;
             this.Titel.Font = new System.Drawing.Font("Mongolian Baiti", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Titel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.Titel.Location = new System.Drawing.Point(506, 242);
+            this.Titel.Location = new System.Drawing.Point(418, 242);
             this.Titel.Name = "Titel";
             this.Titel.Size = new System.Drawing.Size(295, 24);
             this.Titel.TabIndex = 4;
             this.Titel.Text = "Mang bình an đến mọi người";
-            this.Titel.Click += new System.EventHandler(this.Titel_Click);
             // 
             // ThongTinNSX
             // 
@@ -86,7 +86,7 @@ namespace QLTT.Common
             this.lbDate.AutoSize = true;
             this.lbDate.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDate.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbDate.Location = new System.Drawing.Point(570, 407);
+            this.lbDate.Location = new System.Drawing.Point(480, 409);
             this.lbDate.Name = "lbDate";
             this.lbDate.Size = new System.Drawing.Size(159, 30);
             this.lbDate.TabIndex = 2;
@@ -98,22 +98,27 @@ namespace QLTT.Common
             this.lbTime.AutoSize = true;
             this.lbTime.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbTime.Location = new System.Drawing.Point(617, 355);
+            this.lbTime.Location = new System.Drawing.Point(498, 365);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(86, 30);
+            this.lbTime.Size = new System.Drawing.Size(127, 30);
             this.lbTime.TabIndex = 1;
-            this.lbTime.Text = "20:20";
+            this.lbTime.Text = "20:20:20";
             // 
             // Logo
             // 
             this.Logo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.Logo.Image = global::QLTT.Properties.Resources.LogoFinal2;
-            this.Logo.Location = new System.Drawing.Point(500, 65);
+            this.Logo.Location = new System.Drawing.Point(422, 65);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(290, 174);
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
-            this.Logo.Click += new System.EventHandler(this.Logo_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // TrangChu
             // 
@@ -143,5 +148,6 @@ namespace QLTT.Common
         private System.Windows.Forms.Label lbTime;
         private System.Windows.Forms.Label ThongTinNSX;
         private System.Windows.Forms.Label Titel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

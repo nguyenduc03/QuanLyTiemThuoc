@@ -17,11 +17,11 @@ namespace QLTT.GUI.Admin
     public partial class frmReport : Form
     {
         //   QLTTModel contextDB = new QLTTModel();
-        public getMaHDDelegate getDelegate;
+        public getDelegate getDelegate;
         public frmReport()
         {
             InitializeComponent();
-            getDelegate = new getMaHDDelegate(GetMessage);
+            getDelegate = new getDelegate(GetMessage);
         }
 
         private void GetMessage(string Message)

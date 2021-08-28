@@ -502,6 +502,8 @@ namespace QLTT.Controls.Admin
             // 
             // dgv_CTHD
             // 
+            this.dgv_CTHD.AllowUserToAddRows = false;
+            this.dgv_CTHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_CTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_CTHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column8,
@@ -509,12 +511,13 @@ namespace QLTT.Controls.Admin
             this.Column71,
             this.Column6,
             this.Column7});
-            this.dgv_CTHD.Location = new System.Drawing.Point(12, 117);
+            this.dgv_CTHD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv_CTHD.Location = new System.Drawing.Point(3, 111);
             this.dgv_CTHD.Name = "dgv_CTHD";
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dgv_CTHD.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_CTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_CTHD.Size = new System.Drawing.Size(732, 194);
+            this.dgv_CTHD.Size = new System.Drawing.Size(748, 228);
             this.dgv_CTHD.TabIndex = 20;
             this.dgv_CTHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CTHD_CellClick);
             // 
@@ -527,25 +530,21 @@ namespace QLTT.Controls.Admin
             // 
             this.Column5.HeaderText = "Mã Hóa Đơn";
             this.Column5.Name = "Column5";
-            this.Column5.Width = 120;
             // 
             // Column71
             // 
             this.Column71.HeaderText = "Số Lượng Mua";
             this.Column71.Name = "Column71";
-            this.Column71.Width = 120;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Thuốc";
             this.Column6.Name = "Column6";
-            this.Column6.Width = 200;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Đơn Giá";
             this.Column7.Name = "Column7";
-            this.Column7.Width = 150;
             // 
             // ChiTietHoaDon
             // 

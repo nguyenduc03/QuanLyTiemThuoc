@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using QLTT.DataAccessLayer;
-
+using QLTT.DataAccessLayer.Enities;
 
 namespace QLTT.BusinessAccessLayer
 {
@@ -19,9 +19,15 @@ namespace QLTT.BusinessAccessLayer
         }
 
         //kiểm tra đăng nhập
-        public bool KiemTraDangNhap(string useremail, string password, out string error)
+        public bool KiemTraDangNhap(int userID, string password, out string error)
         {
-            return _taiKhoanDAL.KiemTraDangNhap(useremail, MD5Hash(password), out error);
+            return _taiKhoanDAL.KiemTraDangNhap(userID, MD5Hash(password), out error);
+        }
+
+        //lấy tài khoản
+        public NhanVien layTaiKhoan(int userID, string password, out string error)
+        {
+            return _taiKhoanDAL.layTaiKhoan(userID, MD5Hash(password), out error);
         }
 
         //mã hoá mật khẩu

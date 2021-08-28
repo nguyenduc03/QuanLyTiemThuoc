@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace QLTT.Helpers
 {
-        public delegate void getMaHDDelegate(string Message);
+        public delegate void getDelegate(string Message);
 }

@@ -1,4 +1,5 @@
 ﻿using QLTT.BusinessAccessLayer;
+using QLTT.Controls.User;
 using QLTT.DataAccessLayer.Enities;
 using QLTT.DTO;
 using QLTT.Helpers;
@@ -16,7 +17,7 @@ namespace QLTT.Controls.Admin
 {
     public partial class ChiTietHoaDon : Form
     {
-        public getMaHDDelegate getDelegate;
+        public getDelegate getMaHDDelegate;
 
         private readonly HoaDonBAL _hoaDonBAL;
         private readonly ChiTietHoaDonBAL _chiTietHoaDonBAL;
@@ -24,14 +25,16 @@ namespace QLTT.Controls.Admin
         private readonly ThuocBAL _thuocBAL;
         int maHoaDon;
         int Id;
-        public ChiTietHoaDon()
+        private UserForm temp;
+        public ChiTietHoaDon(UserForm x)
         {
             InitializeComponent();
-            getDelegate = new getMaHDDelegate(GetMessage);
+            getMaHDDelegate = new getDelegate(GetMessage);
             _nhanVienBAL = new NhanVienBAL();
             _thuocBAL = new ThuocBAL();
             _hoaDonBAL = new HoaDonBAL();
             _chiTietHoaDonBAL = new ChiTietHoaDonBAL();
+            temp = x;
         }
 
         private void GetMessage(string Message)
@@ -255,8 +258,7 @@ namespace QLTT.Controls.Admin
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            LapHoaDon frm = new LapHoaDon();
-            frm.Show();
+            temp.showLapHoaDon(temp);
             this.Close();         
         }
 

@@ -37,5 +37,10 @@ namespace QLTT.BusinessAccessLayer
         {
             return _thuocDAL.capNhatThuoc(thuocMoi, error);
         }
+        
+        public bool timThuocDaBan(string maThuoc)
+        {
+            return _thuocDAL.timThuocDaBan(maThuoc);
+        }
     }
 }

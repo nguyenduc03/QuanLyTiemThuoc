@@ -1,6 +1,7 @@
 ﻿
 using QLTT.BusinessAccessLayer;
 using QLTT.Controls.Admin;
+using QLTT.Controls.User;
 using QLTT.DataAccessLayer.Enities;
 using QLTT.DTO;
 using QLTT.GUI.Admin;
@@ -19,20 +20,30 @@ namespace QLTT
 {
     public partial class LapHoaDon : Form
     {
+
+        public getDelegate getMaNVDelegate;
+
         private readonly HoaDonBAL _hoaDonBAL;
         private readonly ChiTietHoaDonBAL _chiTietHoaDonBAL;
         private readonly NhanVienBAL _nhanVienBAL;
         private readonly ThuocBAL _thuocBAL;
         int maHoaDon;
+        private UserForm temp;
 
-
-        public LapHoaDon()
+        public LapHoaDon(UserForm x)
         {
             InitializeComponent();
             _nhanVienBAL = new NhanVienBAL();
             _thuocBAL = new ThuocBAL();
             _hoaDonBAL = new HoaDonBAL();
             _chiTietHoaDonBAL = new ChiTietHoaDonBAL();
+            temp = x;
+            getMaNVDelegate = new getDelegate(GetMessage);
+        }
+
+        private void GetMessage(string Message)
+        {
+            txt_NV.Text = Message;
         }
 
         private void LapHoaDon_Load(object sender, EventArgs e)
@@ -167,8 +178,16 @@ namespace QLTT
 
             hd.MaNV = Convert.ToInt32(cbbMaNV.SelectedValue.ToString());
             hd.NgayLap = (DateTime)dtpNgayBan.Value;
-            hd.TongTien = int.Parse(txtTongTien.Text);
+            if (txtTongTien.Text.Trim() == "")
+            {
+                hd.TongTien = 0;
+            }
+            else
+            {
+                hd.TongTien = int.Parse(txtTongTien.Text.Trim());
+            }
 
+            hd.TongTien = 0;
             if (_hoaDonBAL.LuuHoaDon(hd, out error))
             {
                 MessageBox.Show("Thêm thành công!");
@@ -205,15 +224,15 @@ namespace QLTT
             }
             else
             {
-                ChiTietHoaDon frm = new ChiTietHoaDon();
-                frm.getDelegate(txtMaHD.Text);
-                frm.Show();
 
+
+                temp.showChiTiet(txtMaHD.Text);
                 // dgv_CTHD.Rows.Clear();
                 this.Close();
             }
 
         }
+        
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -291,6 +310,21 @@ namespace QLTT
                 frm.Show();
             }
            
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            clear();
+        }
+
+        private void panelTitel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

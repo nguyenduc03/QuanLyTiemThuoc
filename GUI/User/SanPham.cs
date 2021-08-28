@@ -126,25 +126,41 @@ namespace QLTT.Controls
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(txtMaThuoc.Text == "")
+            if(txtMaThuoc.Text.Trim() == "")
             {
                 MessageBox.Show("vui lòng nhập mã thuốc cần xoá");
             } else if (!_thuocBAL.timKiemThuoc(txtMaThuoc.Text, error))
             {
                 MessageBox.Show("không tồn tại thuốc này trong danh sách");
+            } 
+            else if (_thuocBAL.timThuocDaBan(txtMaThuoc.Text.Trim()))
+            {
+                MessageBox.Show("thuốc này đã bán, không thể xoá");
             }
             else
             {
-                DialogResult result = MessageBox.Show($"Chắc chắn xoá thuốc { txtMaThuoc.Text} không?", 
+                DialogResult result = MessageBox.Show($"Chắc chắn xoá thuốc { txtMaThuoc.Text.Trim()} không?", 
                     "Muốn Xoá à", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
                 if(result == DialogResult.Yes)
                 {
-                    MessageBox.Show(_thuocBAL.xoaThuoc(txtMaThuoc.Text, error));
+                    MessageBox.Show(_thuocBAL.xoaThuoc(txtMaThuoc.Text.Trim(), error));
                     SanPham_Load(sender, e);
                 }
             }
             
         }
 
+        private void dgvDanhMucThuoc_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            if (index > -1)
+            {
+                txtTenThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[1].Value.ToString();
+                txtMaThuoc.Text = dgvDanhMucThuoc.Rows[index].Cells[0].Value.ToString();
+                txtMoTa.Text = dgvDanhMucThuoc.Rows[index].Cells[4].Value.ToString();
+                txtDonGia.Text = dgvDanhMucThuoc.Rows[index].Cells[3].Value.ToString();
+                txtSoLuong.Text = dgvDanhMucThuoc.Rows[index].Cells[2].Value.ToString();
+            }
+        }
     }
 }

@@ -111,5 +111,13 @@ namespace QLTT.DataAccessLayer
                 return "Lỗi! Cập nhật thất bại! " + error;
             }
         }
+
+        public bool timThuocDaBan(string maThuoc)
+        {
+            using (var dbcontext = new QLTTModel())
+            {
+                return dbcontext.CTHDs.Any(hd => hd.MaThuoc == maThuoc);
+            }
+        }
     }
 }

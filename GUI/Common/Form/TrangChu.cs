@@ -16,32 +16,22 @@ namespace QLTT.Common
         {
             InitializeComponent();
         }
-
-       
-
         private void TrangChu_Load_1(object sender, EventArgs e)
         {
             Logo.BackColor = Color.FromArgb(0, 0, 0, 0);
             panel1.BackColor = Color.FromArgb(150, 0, 0, 0);
-            lbDate.BackColor =Color.FromArgb(0, 0, 0, 0);
+            lbDate.BackColor = Color.FromArgb(0, 0, 0, 0);
             lbTime.BackColor = Color.FromArgb(0, 0, 0, 0);
             ThongTinNSX.BackColor = Color.FromArgb(0, 0, 0, 0);
             Titel.BackColor = Color.FromArgb(0, 0, 0, 0);
+            timer1_Tick(sender, e);
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
 
-        private void Logo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Titel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

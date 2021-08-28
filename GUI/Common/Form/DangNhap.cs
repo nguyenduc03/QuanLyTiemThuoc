@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using QLTT.BusinessAccessLayer;
+using QLTT.Controls.User;
+using QLTT.DataAccessLayer.Enities;
 using QLTT.Helpers;
 
 
@@ -27,10 +29,10 @@ namespace QLTT.Common
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             //nhận thông tin nhập vào
-            string userEmail = this.txtEmail.Text;
-            string userMatKhau = this.txtMatKhau.Text;
+            string userID = this.txtID.Text.Trim();
+            string userMatKhau = this.txtMatKhau.Text.Trim();
             //kiểm tra rỗng
-            if (userEmail == "" || userMatKhau == "")
+            if (userID == "" || userMatKhau == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy dủ thông tin");
                 return;
@@ -38,11 +40,18 @@ namespace QLTT.Common
 
             //kiểm tra tài khoản trong database
             string error;
-            if (_taiKhoanBAL.KiemTraDangNhap(userEmail, userMatKhau, out error))
+            if (_taiKhoanBAL.KiemTraDangNhap(int.Parse(userID), userMatKhau, out error))
             {
-                MessageBox.Show("đăng nhập thành công!");
+                QLTTModel dbcontext = new QLTTModel();
+                NhanVien nv = _taiKhoanBAL.layTaiKhoan(int.Parse(userID), userMatKhau, out error);
+                UserForm frm = new UserForm(nv, this);
                 loginSucess();
-                this.Close();
+                MessageBox.Show("đăng nhập thành công!");
+
+                frm.getMaNVDelegate(txtID.Text);
+
+                frm.Show();
+                this.Hide();
             }
             else
             {
@@ -68,5 +77,22 @@ namespace QLTT.Common
             return true;
         }
 
+        private void txtMatKhau_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateInput(sender);
+        }
+
+        private void btnDangNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+          
+        }
+
+        private void txtID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
