@@ -3,6 +3,7 @@ using QLTT.BusinessAccessLayer;
 using QLTT.Controls.Admin;
 using QLTT.DataAccessLayer.Enities;
 using QLTT.DTO;
+using QLTT.GUI.Admin;
 using QLTT.Helpers;
 using System;
 using System.Collections.Generic;
@@ -275,6 +276,12 @@ namespace QLTT
                     }
                 }
             }
+        }
+
+        private void btnInHD_Click(object sender, EventArgs e)
+        {
+            frmReport frm = new frmReport();
+                frm.Show();
         }
     }
 }

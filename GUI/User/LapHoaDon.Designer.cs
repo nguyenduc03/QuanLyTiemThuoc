@@ -29,8 +29,8 @@ namespace QLTT
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelTitel = new System.Windows.Forms.Panel();
             this.labelDiaChi = new System.Windows.Forms.Label();
@@ -297,8 +297,9 @@ namespace QLTT
             this.Column7});
             this.dgv_CTHD.Location = new System.Drawing.Point(443, 168);
             this.dgv_CTHD.Name = "dgv_CTHD";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.dgv_CTHD.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgv_CTHD.ReadOnly = true;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgv_CTHD.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_CTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_CTHD.Size = new System.Drawing.Size(457, 135);
             this.dgv_CTHD.TabIndex = 20;
@@ -308,29 +309,34 @@ namespace QLTT
             // 
             this.Column8.HeaderText = "Id";
             this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
             this.Column8.Width = 29;
             // 
             // Column5
             // 
             this.Column5.HeaderText = "Mã Hóa Đơn";
             this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
             // 
             // Column71
             // 
             this.Column71.HeaderText = "Số Lượng";
             this.Column71.Name = "Column71";
+            this.Column71.ReadOnly = true;
             this.Column71.Width = 80;
             // 
             // Column6
             // 
             this.Column6.HeaderText = "Thuốc";
             this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             this.Column6.Width = 120;
             // 
             // Column7
             // 
             this.Column7.HeaderText = "Giá Tiền";
             this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // dgv_HoaDon
             // 
@@ -342,8 +348,9 @@ namespace QLTT
             this.Column4});
             this.dgv_HoaDon.Location = new System.Drawing.Point(12, 168);
             this.dgv_HoaDon.Name = "dgv_HoaDon";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.dgv_HoaDon.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_HoaDon.ReadOnly = true;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.dgv_HoaDon.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_HoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_HoaDon.Size = new System.Drawing.Size(425, 135);
             this.dgv_HoaDon.TabIndex = 19;
@@ -353,21 +360,25 @@ namespace QLTT
             // 
             this.Column1.HeaderText = "Mã Hóa Đơn";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Ngày Lập";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Tổng Tiền";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // Column4
             // 
             this.Column4.HeaderText = "Nhân Viên";
             this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
             // 
             // panel5
             // 
@@ -402,7 +413,6 @@ namespace QLTT
             this.txtTongTien.Size = new System.Drawing.Size(140, 16);
             this.txtTongTien.TabIndex = 1;
             this.txtTongTien.TabStop = false;
-            this.txtTongTien.Text = "999.999.999 đ";
             // 
             // labelTongTien
             // 
@@ -527,6 +537,7 @@ namespace QLTT
             this.btnInHD.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnInHD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnInHD.UseVisualStyleBackColor = true;
+            this.btnInHD.Click += new System.EventHandler(this.btnInHD_Click);
             // 
             // panel11
             // 
@@ -674,7 +685,7 @@ namespace QLTT
             this.cbbMaThuoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.cbbMaThuoc.Enabled = false;
             this.cbbMaThuoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbbMaThuoc.ForeColor = System.Drawing.Color.White;
+            this.cbbMaThuoc.ForeColor = System.Drawing.SystemColors.Window;
             this.cbbMaThuoc.FormattingEnabled = true;
             this.cbbMaThuoc.Location = new System.Drawing.Point(173, 10);
             this.cbbMaThuoc.Name = "cbbMaThuoc";

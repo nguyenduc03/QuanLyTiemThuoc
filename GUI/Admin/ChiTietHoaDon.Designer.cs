@@ -35,6 +35,7 @@ namespace QLTT.Controls.Admin
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.labelTongTien = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.btnReset = new FontAwesome.Sharp.IconButton();
             this.btnSua = new FontAwesome.Sharp.IconButton();
             this.btnXoa = new FontAwesome.Sharp.IconButton();
@@ -66,7 +67,6 @@ namespace QLTT.Controls.Admin
             this.Column71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnBack = new FontAwesome.Sharp.IconButton();
             this.panel5.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -110,10 +110,10 @@ namespace QLTT.Controls.Admin
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.ReadOnly = true;
             this.txtTongTien.ShortcutsEnabled = false;
-            this.txtTongTien.Size = new System.Drawing.Size(140, 16);
+            this.txtTongTien.Size = new System.Drawing.Size(88, 16);
             this.txtTongTien.TabIndex = 1;
             this.txtTongTien.TabStop = false;
-            this.txtTongTien.Text = "999.999.999 đ";
+            this.txtTongTien.Text = "0";
             // 
             // labelTongTien
             // 
@@ -138,6 +138,26 @@ namespace QLTT.Controls.Admin
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(748, 38);
             this.panel9.TabIndex = 17;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnBack.IconColor = System.Drawing.Color.White;
+            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnBack.IconSize = 40;
+            this.btnBack.Location = new System.Drawing.Point(575, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(147, 35);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.Text = "Về Hóa Đơn";
+            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnReset
             // 
@@ -283,6 +303,8 @@ namespace QLTT.Controls.Admin
             this.txtSoLuong.Name = "txtSoLuong";
             this.txtSoLuong.Size = new System.Drawing.Size(100, 20);
             this.txtSoLuong.TabIndex = 5;
+            this.txtSoLuong.TextChanged += new System.EventHandler(this.txtSoLuong_TextChanged);
+            this.txtSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoLuong_KeyPress);
             // 
             // panel7
             // 
@@ -327,6 +349,7 @@ namespace QLTT.Controls.Admin
             this.txtDonGia.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtDonGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
             this.txtDonGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtDonGia.Enabled = false;
             this.txtDonGia.ForeColor = System.Drawing.Color.White;
             this.txtDonGia.Location = new System.Drawing.Point(433, 15);
             this.txtDonGia.Multiline = true;
@@ -345,6 +368,7 @@ namespace QLTT.Controls.Admin
             this.cbbMaThuoc.Name = "cbbMaThuoc";
             this.cbbMaThuoc.Size = new System.Drawing.Size(121, 24);
             this.cbbMaThuoc.TabIndex = 4;
+            this.cbbMaThuoc.SelectedIndexChanged += new System.EventHandler(this.cbbMaThuoc_SelectedIndexChanged);
             // 
             // label_MaThuoc
             // 
@@ -522,26 +546,6 @@ namespace QLTT.Controls.Admin
             this.Column7.HeaderText = "Đơn Giá";
             this.Column7.Name = "Column7";
             this.Column7.Width = 150;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnBack.IconColor = System.Drawing.Color.White;
-            this.btnBack.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnBack.IconSize = 40;
-            this.btnBack.Location = new System.Drawing.Point(575, 4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(147, 35);
-            this.btnBack.TabIndex = 23;
-            this.btnBack.Text = "Về Hóa Đơn";
-            this.btnBack.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // ChiTietHoaDon
             // 

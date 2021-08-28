@@ -66,6 +66,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\QLTT.DTO.ReportDTO.datasource" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QLTT.DTO\QLTT.DTO.csproj">
@@ -73,6 +74,8 @@
       <Name>QLTT.DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Report\rptHoaDon.rdlc" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -53,13 +53,24 @@ namespace QLTT.Controls.Admin
 
             }
         }
+       
 
         private void Tai_cbbThuoc()
         {
             cbbMaThuoc.DisplayMember = "TenThuoc";
-            cbbMaThuoc.ValueMember = "MaThuoc";
+            cbbMaThuoc.ValueMember = "MaThuoc";   
+            
             List<ThuocDTO> dsThuoc = _thuocBAL.LayDanhSachThuoc();
             cbbMaThuoc.DataSource = dsThuoc;
+
+        }
+       private void findDGhuoc()
+        {
+            List<ThuocDTO> dsThuoc = _thuocBAL.LayDanhSachThuoc();
+            var sr = (from s in dsThuoc
+                      where s.TenThuoc == cbbMaThuoc.Text
+                      select s).First();
+            txtDonGia.Text = sr.DonGia.ToString();
         }
 
         private void TaiCTHD()
@@ -67,7 +78,7 @@ namespace QLTT.Controls.Admin
             maHoaDon = int.Parse(txtMaHD.Text);
             List<ChiTietHoaDonDTO> chiTietHoaDonDTOs = _chiTietHoaDonBAL.GetChiTietHoaDonsByMaHoaDon(maHoaDon);
             fillDGV_CTHD(chiTietHoaDonDTOs);
-            TongTien();
+            TongTien();     
         }
 
         private void ChiTietHoaDon_Load(object sender, EventArgs e)
@@ -95,8 +106,7 @@ namespace QLTT.Controls.Admin
         }
         private void btnReset_Click(object sender, EventArgs e)
         {
-            clear();
-            txtTongTien.Text = "";
+            clear();        
         }
 
         private void dgv_CTHD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -145,20 +155,18 @@ namespace QLTT.Controls.Admin
                 cthd.MaThuoc = cbbMaThuoc.SelectedValue.ToString();
                 cthd.SoLuongMua = int.Parse(txtSoLuong.Text);
                 cthd.DonGia = int.Parse(txtDonGia.Text);
-               
-              
+                             
                     if (_chiTietHoaDonBAL.LuuChiTietHoaDon(cthd, out error))
                     {
                         MessageBox.Show("Thêm thành công!");
                         TaiCTHD();
                         TongTien();
-                }
+                        UpdateTT();
+                    }
                     else
                     {
                         MessageBox.Show("Thêm mới không thành công! " + error);
                     }
-                
-
             }
         }
 
@@ -173,7 +181,6 @@ namespace QLTT.Controls.Admin
             if (_chiTietHoaDonBAL.CapnhatTongTien(hd, out error))
             {
 
-                MessageBox.Show("Cập nhật thành công!");
             }
             else
             {
@@ -198,9 +205,7 @@ namespace QLTT.Controls.Admin
                     cthd.MaThuoc = cbbMaThuoc.SelectedValue.ToString();
                     cthd.SoLuongMua = int.Parse(txtSoLuong.Text);
                     cthd.DonGia = int.Parse(txtDonGia.Text);
-                    cthd.Id = Id;
-
-                   
+                    cthd.Id = Id;    
                     if (_chiTietHoaDonBAL.LuuChiTietHoaDon(cthd, out error))
                     {
                        
@@ -208,18 +213,13 @@ namespace QLTT.Controls.Admin
                         clear();
                         TongTien();
                         UpdateTT();
-
-
                     }
                     else
                     {
                         MessageBox.Show("Cập nhật không thành công! " + error);
                     }
-                }
-                   
-            }
-            
-            
+                }                 
+            }          
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -243,6 +243,7 @@ namespace QLTT.Controls.Admin
                         TaiCTHD();
                         clear();
                         TongTien();
+                        UpdateTT();
                     }
                     else
                     {
@@ -256,6 +257,37 @@ namespace QLTT.Controls.Admin
         {
             LapHoaDon frm = new LapHoaDon();
             frm.Show();
+            this.Close();         
+        }
+
+        private void cbbMaThuoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            findDGhuoc();
+        }
+
+        private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Xác thực rằng phím vừa nhấn không phải CTRL hoặc không phải dạng số
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+                if (txtSoLuong.Text == "")
+                {
+                    txtSoLuong.Text = "0";
+                }
+                else
+                {
+                    int ThanhTien = int.Parse(txtDonGia.Text) * int.Parse(txtSoLuong.Text);
+                    txtThanhTien.Text = ThanhTien.ToString();
+                }
+             
+
+            }
+        }
+
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+          
         }
     }
 }
