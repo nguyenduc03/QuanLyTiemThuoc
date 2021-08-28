@@ -18,7 +18,7 @@ namespace QLTT.Controls
     {
         private readonly NhanVienBAL _nhanVienBAL;
         private readonly HoaDonBAL _hoaDonnBAL;
-        private string error;
+        private string error = "";
         int maNV;
 
         public QuanLyNhanVien()
