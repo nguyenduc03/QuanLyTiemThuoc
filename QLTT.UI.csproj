@@ -124,7 +124,7 @@
     <Compile Include="GUI\User\LapHoaDon.Designer.cs">
       <DependentUpon>LapHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\CTHDDelegate.cs" />
+    <Compile Include="Helpers\getMaHDDelegate.cs" />
     <Compile Include="Helpers\LoginSuccessDelegate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
