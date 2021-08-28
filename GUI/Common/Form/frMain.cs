@@ -125,7 +125,7 @@ namespace QLTT.Controls.User
             btnThongke.Visible = role;
             btnTrangChu.Visible = true;
             btnLapHoaDon.Visible = true;
-            btnSanPham.Visible = true;
+            btnSanPham.Visible = role;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)

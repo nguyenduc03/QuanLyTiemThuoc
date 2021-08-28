@@ -293,11 +293,11 @@ namespace QLTT.Controls.User
             this.lbTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbTime.Location = new System.Drawing.Point(227, 12);
+            this.lbTime.Location = new System.Drawing.Point(221, 16);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(82, 31);
+            this.lbTime.Size = new System.Drawing.Size(120, 31);
             this.lbTime.TabIndex = 10;
-            this.lbTime.Text = "20:20";
+            this.lbTime.Text = "20:20:20";
             // 
             // panelTitle
             // 

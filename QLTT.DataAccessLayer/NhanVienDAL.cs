@@ -8,42 +8,42 @@ using System.Threading.Tasks;
 
 namespace QLTT.DataAccessLayer
 {
-   public class NhanVienDAL
+    public class NhanVienDAL
     {
 
         public List<NhanVienDTO> LayDanhSachNV()
         {
+            using (var dbcontext = new QLTTModel())
+            {
+                var nvDTO = from nv in dbcontext.NhanViens
+                            select new NhanVienDTO()
+                            {
+                                MaNV = (int)nv.MaNV,
+                                TenNV = nv.TenNV,
+                                NgaySinh = (DateTime)nv.NgaySinh,
+                                SDT = (int)nv.SDT,
+                                Email = nv.Email,
+                                MatKhau = nv.MatKhau,
+                                Role = (bool)nv.Role
+                            };
+                return nvDTO.ToList();
+            }
+        }
+
+        public bool timKiemNV(int maNV, string error)
+        {
+            error = string.Empty;
+            try
+            {
                 using (var dbcontext = new QLTTModel())
                 {
-                    var nvDTO = from nv in dbcontext.NhanViens
-                                   select new NhanVienDTO()
-                                   {
-                                       MaNV = (int)nv.MaNV,
-                                       TenNV = nv.TenNV,
-                                       NgaySinh = (DateTime)nv.NgaySinh,
-                                       SDT = (int)nv.SDT,
-                                       Email = nv.Email,
-                                       MatKhau = nv.MatKhau,
-                                       Role = (bool)nv.Role
-                                   };
-                    return nvDTO.ToList();
+                    return dbcontext.NhanViens.Any(nv => nv.MaNV == maNV);
                 }
             }
-
-            public bool timKiemNV(int maNV, string error)
+            catch (Exception ex)
             {
-                error = string.Empty;
-                try
-                {
-                    using (var dbcontext = new QLTTModel())
-                    {
-                        return dbcontext.NhanViens.Any(nv => nv.MaNV == maNV);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    error = ex.Message;
-                    return false;
+                error = ex.Message;
+                return false;
             }
         }
 
@@ -98,7 +98,7 @@ namespace QLTT.DataAccessLayer
                     NVUpdate.NgaySinh = nv.NgaySinh;
                     NVUpdate.SDT = nv.SDT;
                     NVUpdate.Email = nv.Email;
-                    NVUpdate.MatKhau = nv.MatKhau;               
+                    NVUpdate.MatKhau = nv.MatKhau;
                     NVUpdate.Role = nv.Role;
                     dbcontext.SaveChanges();
                     return true;
@@ -132,9 +132,33 @@ namespace QLTT.DataAccessLayer
             }
         }
 
+        public List<NhanVienDTO> layDSNVTimKiem(string name)
+        {
+            try
+            {
+                using (var dbcontext = new QLTTModel())
+                {
+                    var nvDTO = from nv in dbcontext.NhanViens where nv.TenNV.Contains(name) == true
+                                select new NhanVienDTO()
+                                {
+                                    MaNV = (int)nv.MaNV,
+                                    TenNV = nv.TenNV,
+                                    NgaySinh = (DateTime)nv.NgaySinh,
+                                    SDT = (int)nv.SDT,
+                                    Email = nv.Email,
+                                    MatKhau = nv.MatKhau,
+                                    Role = (bool)nv.Role
+                                };
+                    return nvDTO.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
 
 
-       
 
+        }
     }
 }

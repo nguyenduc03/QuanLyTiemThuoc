@@ -98,11 +98,11 @@ namespace QLTT.Common
             this.lbTime2.AutoSize = true;
             this.lbTime2.Font = new System.Drawing.Font("Mongolian Baiti", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbTime2.Location = new System.Drawing.Point(591, 355);
+            this.lbTime2.Location = new System.Drawing.Point(585, 364);
             this.lbTime2.Name = "lbTime2";
-            this.lbTime2.Size = new System.Drawing.Size(86, 30);
+            this.lbTime2.Size = new System.Drawing.Size(127, 30);
             this.lbTime2.TabIndex = 1;
-            this.lbTime2.Text = "20:20";
+            this.lbTime2.Text = "20:20:20";
             // 
             // Logo
             // 

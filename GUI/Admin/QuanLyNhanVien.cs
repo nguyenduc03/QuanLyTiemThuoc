@@ -109,7 +109,6 @@ namespace QLTT.Controls
 
         private bool checkAD()
         {
-            int role;
             if (chkAdmin.Checked == false)
             {
                 return false;
@@ -195,6 +194,7 @@ namespace QLTT.Controls
         private void btnReset_Click(object sender, EventArgs e)
         {
             clear();
+            TaiDanhSachNV();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -277,6 +277,13 @@ namespace QLTT.Controls
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
         {
          
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            string name = txtTimKiem.Text;
+            List<NhanVienDTO> daTimKiem = _nhanVienBAL.layDSNVTimKiem(name);
+            fillDGV(daTimKiem);
         }
     }
 }

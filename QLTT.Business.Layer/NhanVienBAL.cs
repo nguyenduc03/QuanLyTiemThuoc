@@ -23,10 +23,10 @@ namespace QLTT.BusinessAccessLayer
             return _nhanvienDAL.LayDanhSachNV();
         }
 
-        //public bool timKiemNV(int maNV, string error)
-        //{
-        //    return _nhanvienDAL.timKiemNV(maNV, error);
-        //}
+        public bool timKiemNV(int maNV, string error)
+        {
+            return _nhanvienDAL.timKiemNV(maNV, error);
+        }
 
         public bool xoaNV(NhanVien nv, out string error)
         {
@@ -81,6 +81,10 @@ namespace QLTT.BusinessAccessLayer
                 return false;
             }
             return true;
+        }
+        public List<NhanVienDTO> layDSNVTimKiem(string name)
+        {
+            return _nhanvienDAL.layDSNVTimKiem(name);
         }
     }
 }

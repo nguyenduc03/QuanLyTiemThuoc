@@ -29,9 +29,9 @@ namespace QLTT.Controls
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelNoiDung = new System.Windows.Forms.Panel();
             this.dgv_NV = new System.Windows.Forms.DataGridView();
             this.dgvMaNV = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,6 +70,7 @@ namespace QLTT.Controls
             this.btnXoa = new FontAwesome.Sharp.IconButton();
             this.panelTieuDe = new System.Windows.Forms.Panel();
             this.labelTieuDe = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panelNoiDung.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_NV)).BeginInit();
             this.panelSapXep.SuspendLayout();
@@ -93,9 +94,9 @@ namespace QLTT.Controls
             // 
             // dgv_NV
             // 
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.dgv_NV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.dgv_NV.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_NV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_NV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvMaNV,
@@ -105,18 +106,18 @@ namespace QLTT.Controls
             this.dgvEmail,
             this.dgvMK,
             this.dgvRole});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_NV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_NV.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_NV.Location = new System.Drawing.Point(6, 341);
             this.dgv_NV.Name = "dgv_NV";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.dgv_NV.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.dgv_NV.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_NV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_NV.Size = new System.Drawing.Size(804, 233);
             this.dgv_NV.TabIndex = 6;
@@ -161,6 +162,7 @@ namespace QLTT.Controls
             // 
             // panelSapXep
             // 
+            this.panelSapXep.Controls.Add(this.label6);
             this.panelSapXep.Controls.Add(this.btnTimKiem);
             this.panelSapXep.Controls.Add(this.txtTimKiem);
             this.panelSapXep.Dock = System.Windows.Forms.DockStyle.Top;
@@ -186,6 +188,7 @@ namespace QLTT.Controls
             this.btnTimKiem.TabIndex = 17;
             this.btnTimKiem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTimKiem.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // txtTimKiem
             // 
@@ -541,6 +544,15 @@ namespace QLTT.Controls
             this.labelTieuDe.TabIndex = 0;
             this.labelTieuDe.Text = "Quản Lý Nhân Viên";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(411, 12);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(135, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Nhập tên NV bạn muốn tìm";
+            // 
             // QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,5 +617,6 @@ namespace QLTT.Controls
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txt_MK;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
