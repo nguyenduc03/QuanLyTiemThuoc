@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace QLTT.DTO
 {
-    public class ChiTietHoaDonDTO
+    public class ReportDTO
     {
-        public int Id { get; set; }
-        public int MaHoaDon { get; set; }
+        public int MaHD { get; set; }
+        public DateTime NgayLap { get; set; }
         public string TenThuoc { get; set; }
-        public int SoLuongMua { get; set; }
-        public double GiaTien { get; set; }
+        public string Dongia { get; set; }
+        public int SoLuong { get; set; }
     }
 }

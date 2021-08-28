@@ -17,14 +17,16 @@ namespace QLTT.Controls
     public partial class QuanLyNhanVien : Form
     {
         private readonly NhanVienBAL _nhanVienBAL;
+        private readonly HoaDonBAL _hoaDonnBAL;
         private string error;
         int maNV;
-        QLTTModel contextDB;
+
         public QuanLyNhanVien()
         {
             InitializeComponent();
             _nhanVienBAL = new NhanVienBAL();
-            contextDB = new QLTTModel();
+            _hoaDonnBAL = new HoaDonBAL();
+    
         }
 
 
@@ -179,13 +181,20 @@ namespace QLTT.Controls
             }
         }
 
-        private void Reset()
+        private void clear()
         {
+            txtMailNV.Text = "";
+            txtMaNV.Text = "";
+            txtSDT.Text = "";
+            txtTenNV.Text = "";
+            txtTimKiem.Text = "";
+            txt_MK.Text = "";
+            dtpNgaySinh.Value = DateTime.Now;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            Reset();
+            clear();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -195,10 +204,15 @@ namespace QLTT.Controls
             {
                 MessageBox.Show("vui lòng chọn nhân viên  cần xoá");
             }
+            if (_hoaDonnBAL.KiemTraHoaDonByMaNhanVien(maNV))
+            {
+                MessageBox.Show("Không thể xóa\nNhân viên tồn tại trong hóa đơn!");
+                return;
+            }
             else
             {
                 DialogResult result = MessageBox.Show($"Chắc chắn xoá nhân viên { txtTenNV.Text} không?",
-                    "Muốn Xoá à", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+                    "Bạn đang xóa 1 nhân viên ....", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     string error;
@@ -208,7 +222,7 @@ namespace QLTT.Controls
                     {
                         MessageBox.Show("Xóa thành công!");
                         TaiDanhSachNV();
-                        Reset();
+                        clear();
                     }
                     else
                     {
@@ -239,7 +253,7 @@ namespace QLTT.Controls
             {
                 MessageBox.Show("Cập nhật thành công!");
                 TaiDanhSachNV();
-                Reset();
+                clear();
             }
             else
             {

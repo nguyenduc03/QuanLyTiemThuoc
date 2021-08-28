@@ -44,6 +44,7 @@
     <Compile Include="ChiTietHoaDonDTO.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
+    <Compile Include="ReportDTO.cs" />
     <Compile Include="ThuocDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
