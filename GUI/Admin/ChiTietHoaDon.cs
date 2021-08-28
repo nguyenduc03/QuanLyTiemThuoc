@@ -16,7 +16,7 @@ namespace QLTT.Controls.Admin
 {
     public partial class ChiTietHoaDon : Form
     {
-        public CTHDDelegate cthdDelegate;
+        public getMaHDDelegate getDelegate;
 
         private readonly HoaDonBAL _hoaDonBAL;
         private readonly ChiTietHoaDonBAL _chiTietHoaDonBAL;
@@ -27,7 +27,7 @@ namespace QLTT.Controls.Admin
         public ChiTietHoaDon()
         {
             InitializeComponent();
-            cthdDelegate = new CTHDDelegate(GetMessage);
+            getDelegate = new getMaHDDelegate(GetMessage);
             _nhanVienBAL = new NhanVienBAL();
             _thuocBAL = new ThuocBAL();
             _hoaDonBAL = new HoaDonBAL();

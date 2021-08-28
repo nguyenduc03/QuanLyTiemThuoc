@@ -11,7 +11,7 @@ namespace QLTT.DTO
         public int MaHD { get; set; }
         public DateTime NgayLap { get; set; }
         public string TenThuoc { get; set; }
-        public string Dongia { get; set; }
-        public int SoLuong { get; set; }
+        public int Dongia { get; set; }
+        public int SoLuongMua { get; set; }
     }
 }

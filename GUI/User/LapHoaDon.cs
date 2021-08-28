@@ -206,7 +206,7 @@ namespace QLTT
             else
             {
                 ChiTietHoaDon frm = new ChiTietHoaDon();
-                frm.cthdDelegate(txtMaHD.Text);
+                frm.getDelegate(txtMaHD.Text);
                 frm.Show();
 
                 // dgv_CTHD.Rows.Clear();
@@ -280,8 +280,17 @@ namespace QLTT
 
         private void btnInHD_Click(object sender, EventArgs e)
         {
-            frmReport frm = new frmReport();
+            if(txtMaHD.Text=="")
+            {
+                MessageBox.Show("Vui lòng chọn hóa đơn để in");
+            }
+            else
+            {
+                frmReport frm = new frmReport();
+                frm.getDelegate(txtMaHD.Text);
                 frm.Show();
+            }
+           
         }
     }
 }
