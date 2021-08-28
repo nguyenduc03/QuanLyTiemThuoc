@@ -29,9 +29,9 @@ namespace QLTT.Controls.User
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
             this.panel_Menu = new System.Windows.Forms.Panel();
-            this.btnDangNhap2 = new FontAwesome.Sharp.IconButton();
             this.btnQuanLyNV = new FontAwesome.Sharp.IconButton();
             this.btnDangXuat = new FontAwesome.Sharp.IconButton();
             this.btnThongke = new FontAwesome.Sharp.IconButton();
@@ -49,6 +49,7 @@ namespace QLTT.Controls.User
             this.panelTitle = new System.Windows.Forms.Panel();
             this.IconCurrent = new FontAwesome.Sharp.IconPictureBox();
             this.LabellTiTle = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel_Menu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -62,7 +63,6 @@ namespace QLTT.Controls.User
             // panel_Menu
             // 
             this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.panel_Menu.Controls.Add(this.btnDangNhap2);
             this.panel_Menu.Controls.Add(this.btnQuanLyNV);
             this.panel_Menu.Controls.Add(this.btnDangXuat);
             this.panel_Menu.Controls.Add(this.btnThongke);
@@ -75,29 +75,6 @@ namespace QLTT.Controls.User
             this.panel_Menu.Name = "panel_Menu";
             this.panel_Menu.Size = new System.Drawing.Size(222, 671);
             this.panel_Menu.TabIndex = 2;
-            // 
-            // btnDangNhap2
-            // 
-            this.btnDangNhap2.AutoSize = true;
-            this.btnDangNhap2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(49)))), ((int)(((byte)(49)))));
-            this.btnDangNhap2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnDangNhap2.FlatAppearance.BorderSize = 0;
-            this.btnDangNhap2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhap2.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDangNhap2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.btnDangNhap2.IconChar = FontAwesome.Sharp.IconChar.SignInAlt;
-            this.btnDangNhap2.IconColor = System.Drawing.Color.Gainsboro;
-            this.btnDangNhap2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnDangNhap2.IconSize = 45;
-            this.btnDangNhap2.Location = new System.Drawing.Point(0, 527);
-            this.btnDangNhap2.Name = "btnDangNhap2";
-            this.btnDangNhap2.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnDangNhap2.Size = new System.Drawing.Size(222, 72);
-            this.btnDangNhap2.TabIndex = 10;
-            this.btnDangNhap2.Text = "Đăng Nhập";
-            this.btnDangNhap2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDangNhap2.UseVisualStyleBackColor = false;
-            this.btnDangNhap2.Click += new System.EventHandler(this.btnDangNhap2_Click);
             // 
             // btnQuanLyNV
             // 
@@ -316,11 +293,11 @@ namespace QLTT.Controls.User
             this.lbTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lbTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTime.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lbTime.Location = new System.Drawing.Point(227, 12);
+            this.lbTime.Location = new System.Drawing.Point(207, 13);
             this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(82, 31);
+            this.lbTime.Size = new System.Drawing.Size(120, 31);
             this.lbTime.TabIndex = 10;
-            this.lbTime.Text = "20:20";
+            this.lbTime.Text = "20:20:20";
             // 
             // panelTitle
             // 
@@ -357,6 +334,12 @@ namespace QLTT.Controls.User
             this.LabellTiTle.TabIndex = 1;
             this.LabellTiTle.Text = "Trang Chủ";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,6 +354,7 @@ namespace QLTT.Controls.User
             this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Tiệm Thuốc";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UserForm_FormClosed);
             this.Load += new System.EventHandler(this.UserForm_Load);
             this.panel_Menu.ResumeLayout(false);
             this.panel_Menu.PerformLayout();
@@ -407,6 +391,6 @@ namespace QLTT.Controls.User
         private FontAwesome.Sharp.IconPictureBox IconCurrent;
         private FontAwesome.Sharp.IconButton btnQuanLyNV;
         private FontAwesome.Sharp.IconButton btnThongke;
-        private FontAwesome.Sharp.IconButton btnDangNhap2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

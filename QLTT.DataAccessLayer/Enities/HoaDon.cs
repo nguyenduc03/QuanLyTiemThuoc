@@ -16,6 +16,7 @@ namespace QLTT.DataAccessLayer.Enities
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaHD { get; set; }
 
         [Column(TypeName = "date")]
@@ -23,7 +24,7 @@ namespace QLTT.DataAccessLayer.Enities
 
         public long? TongTien { get; set; }
 
-        public int? MaNV { get; set; }
+        public int MaNV { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

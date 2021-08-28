@@ -19,11 +19,10 @@ namespace QLTT.DataAccessLayer
                                        where b.MaHD == maHoaDon
                                        select new ChiTietHoaDonDTO()
                                        {
-                                           Id = b.Id,
                                            MaHoaDon = b.MaHD,
                                            TenThuoc = b.Thuoc.TenThuoc,
                                            SoLuongMua =(int) b.SoLuongMua,
-                                           GiaTien = (int)b.DonGia
+                                           GiaTien = (int) b.GiaTien
                                        };
                 return chiTietHoaDonDTO.ToList();
             }
@@ -63,7 +62,7 @@ namespace QLTT.DataAccessLayer
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    var CTHDUpdate = dbcontext.CTHDs.Find(cthd.Id);
+                    var CTHDUpdate = dbcontext.CTHDs.FirstOrDefault(ct => ct.MaHD == cthd.MaHD && ct.MaThuoc == cthd.MaThuoc);
 
                     if (CTHDUpdate == null)
                     {
@@ -119,7 +118,7 @@ namespace QLTT.DataAccessLayer
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    var CTHDUpdate = dbcontext.CTHDs.Find(cthd.Id);
+                    var CTHDUpdate = dbcontext.CTHDs.FirstOrDefault(ct => ct.MaHD == cthd.MaHD && ct.MaThuoc == cthd.MaThuoc);
                     if (CTHDUpdate == null)
                     {
                         error = "Không tìm thấy chi tiết hóa đơn";
@@ -127,7 +126,7 @@ namespace QLTT.DataAccessLayer
                     }
                     CTHDUpdate.MaThuoc = cthd.MaThuoc;
                     CTHDUpdate.SoLuongMua = cthd.SoLuongMua;
-                    CTHDUpdate.DonGia = cthd.DonGia;
+                    CTHDUpdate.GiaTien = cthd.GiaTien;
 
                     dbcontext.SaveChanges();
                     return true;

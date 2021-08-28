@@ -35,7 +35,7 @@ namespace QLTT.BusinessAccessLayer
             try
             {
                 //cập nhật
-                if (chiTietHoaDon.Id > 0)
+                if (chiTietHoaDon.MaHD > 0 && chiTietHoaDon.MaThuoc != "")
                 {
                     if (!_chiTietHoaDonDAL.CapNhatCTHD(chiTietHoaDon, out error))
                     {

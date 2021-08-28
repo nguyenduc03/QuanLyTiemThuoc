@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using QLTT.DataAccessLayer.Enities;
 namespace QLTT.Controls.User
 {
     public partial class UserForm : Form
@@ -18,19 +18,20 @@ namespace QLTT.Controls.User
         private IconButton CurrentBTN = new IconButton();
 
         private Form CurrentChildForm;
-        public UserForm()
+
+        private DangNhap dangNhap;
+
+        private NhanVien nhanVien;
+        public UserForm(NhanVien nv, DangNhap temp)
         {
             InitializeComponent();
             OpenChildForm(new TrangChu());
             ShowCurrentBTN(btnTrangChu, ClassColor.color1);
-
+            this.nhanVien = nv;
+            this.dangNhap = temp;
+            this.dangNhap.loginSucess += FrmLogin_loginSucess;
         }
 
-
-        private void UserForm_Load(object sender, EventArgs e)
-        {
-            initMenu(false);
-        }
         private  void OpenChildForm (Form ChildForm)
         {
             if (CurrentChildForm !=null)
@@ -112,44 +113,40 @@ namespace QLTT.Controls.User
             MessageBox.Show("Nothing here");
         }
 
-        private void btnDangNhap2_Click(object sender, EventArgs e)
-        {
-            Form frm = this.MdiChildren.OfType<DangNhap>().FirstOrDefault();
-            if(frm == null)
-            {
-                DangNhap frmLogin = new DangNhap();
-                frmLogin.loginSucess += FrmLogin_loginSucess;
-                frmLogin.Show();
-            }
-            else
-            {
-                frm.Activate();
-            }
-        }
 
         private void FrmLogin_loginSucess()
         {
-            initMenu(true);
+            initMenu(bool.Parse(nhanVien.Role.ToString()));
         }
 
-        private void initMenu(bool login)
+        private void initMenu(bool role)
         {
-            btnTrangChu.Enabled = login;
-            pnContent.Enabled = login;
-            btnLapHoaDon.Enabled = login;
-            btnQuanLyNV.Enabled = login;
-            btnSanPham.Enabled = login;
-            btnThongke.Enabled = login;
-            btnDangXuat.Enabled = login;
-            btnDangNhap2.Enabled = !login;
+            btnSanPham.Visible = role;
+            btnQuanLyNV.Visible = role;
+            btnThongke.Visible = role;
+            btnTrangChu.Visible = true;
+            btnLapHoaDon.Visible = true;
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            initMenu(false);
-            DangNhap frmLogin = new DangNhap();
-            frmLogin.loginSucess += FrmLogin_loginSucess;
-            frmLogin.Show();
+            this.Close();
+        }
+
+        private void UserForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.dangNhap.Show();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            timer1_Tick(sender, e);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss");
+            lbDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
     }
 }

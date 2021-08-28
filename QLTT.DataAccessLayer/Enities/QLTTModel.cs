@@ -8,23 +8,17 @@ namespace QLTT.DataAccessLayer.Enities
     public partial class QLTTModel : DbContext
     {
         public QLTTModel()
-            : base("name=QLTTModel1")
+            : base("name=QLTTModel")
         {
         }
 
-
-        public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Thuoc> Thuocs { get; set; }
+        public virtual DbSet<CTHD> CTHDs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CTHD>()
-                .Property(e => e.MaThuoc)
-                .IsUnicode(false);
-
             modelBuilder.Entity<HoaDon>()
                 .HasMany(e => e.CTHDs)
                 .WithRequired(e => e.HoaDon)
@@ -38,6 +32,11 @@ namespace QLTT.DataAccessLayer.Enities
                 .Property(e => e.MatKhau)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<NhanVien>()
+                .HasMany(e => e.HoaDons)
+                .WithRequired(e => e.NhanVien)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Thuoc>()
                 .Property(e => e.MaThuoc)
                 .IsUnicode(false);
@@ -46,6 +45,10 @@ namespace QLTT.DataAccessLayer.Enities
                 .HasMany(e => e.CTHDs)
                 .WithRequired(e => e.Thuoc)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<CTHD>()
+                .Property(e => e.MaThuoc)
+                .IsUnicode(false);
         }
     }
 }

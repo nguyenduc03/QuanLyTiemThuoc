@@ -16,11 +16,13 @@ namespace QLTT.DataAccessLayer.Enities
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaNV { get; set; }
 
         [StringLength(50)]
         public string TenNV { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? NgaySinh { get; set; }
 
         public int? SDT { get; set; }

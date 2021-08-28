@@ -39,7 +39,7 @@ namespace QLTT.Common
             this.iconDangNhap = new FontAwesome.Sharp.IconPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMaNV = new System.Windows.Forms.TextBox();
             this.btnDangNhap = new FontAwesome.Sharp.IconButton();
             this.labelDangNhap = new System.Windows.Forms.Label();
             this.ThongTinNSX = new System.Windows.Forms.Label();
@@ -62,7 +62,7 @@ namespace QLTT.Common
             this.panelDangNhap.Controls.Add(this.iconDangNhap);
             this.panelDangNhap.Controls.Add(this.panel2);
             this.panelDangNhap.Controls.Add(this.Logo);
-            this.panelDangNhap.Controls.Add(this.txtEmail);
+            this.panelDangNhap.Controls.Add(this.txtMaNV);
             this.panelDangNhap.Controls.Add(this.btnDangNhap);
             this.panelDangNhap.Controls.Add(this.labelDangNhap);
             this.panelDangNhap.Location = new System.Drawing.Point(12, 69);
@@ -78,9 +78,9 @@ namespace QLTT.Common
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
             this.label2.Location = new System.Drawing.Point(122, 188);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.Size = new System.Drawing.Size(109, 20);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Email";
+            this.label2.Text = "Mã Nhân Viên";
             // 
             // IconMatKhau
             // 
@@ -119,6 +119,7 @@ namespace QLTT.Common
             this.txtMatKhau.PasswordChar = '*';
             this.txtMatKhau.Size = new System.Drawing.Size(186, 24);
             this.txtMatKhau.TabIndex = 11;
+            this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtMatKhau_Validating);
             // 
             // panel3
             // 
@@ -161,19 +162,19 @@ namespace QLTT.Common
             this.Logo.TabIndex = 6;
             this.Logo.TabStop = false;
             // 
-            // txtEmail
+            // txtMaNV
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.White;
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.Gray;
-            this.txtEmail.HideSelection = false;
-            this.txtEmail.Location = new System.Drawing.Point(126, 211);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(186, 24);
-            this.txtEmail.TabIndex = 4;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.formDangNhap_Validating);
+            this.txtMaNV.BackColor = System.Drawing.Color.White;
+            this.txtMaNV.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaNV.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaNV.ForeColor = System.Drawing.Color.Gray;
+            this.txtMaNV.HideSelection = false;
+            this.txtMaNV.Location = new System.Drawing.Point(126, 211);
+            this.txtMaNV.Multiline = true;
+            this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Size = new System.Drawing.Size(186, 24);
+            this.txtMaNV.TabIndex = 4;
+            this.txtMaNV.Validating += new System.ComponentModel.CancelEventHandler(this.formDangNhap_Validating);
             // 
             // btnDangNhap
             // 
@@ -255,7 +256,7 @@ namespace QLTT.Common
         #endregion
 
         private System.Windows.Forms.Panel panelDangNhap;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtMaNV;
         private FontAwesome.Sharp.IconButton btnDangNhap;
         private System.Windows.Forms.Label labelDangNhap;
         private System.Windows.Forms.PictureBox Logo;

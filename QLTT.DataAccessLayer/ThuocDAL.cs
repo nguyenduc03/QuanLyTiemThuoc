@@ -51,15 +51,7 @@ namespace QLTT.DataAccessLayer
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    Thuoc temp = new Thuoc();
-                    foreach (Thuoc thuoc in dbcontext.Thuocs)
-                    {
-                        if(thuoc.MaThuoc == maThuoc)
-                        {
-                            temp = thuoc;
-                            break;
-                        }
-                    }
+                    Thuoc temp = dbcontext.Thuocs.FirstOrDefault(thuoc=> thuoc.MaThuoc == maThuoc);
                     dbcontext.Thuocs.Remove(temp);
                     dbcontext.SaveChanges();
                     return "xoá thành công";
@@ -79,18 +71,8 @@ namespace QLTT.DataAccessLayer
             {
                 using (var dbcontext = new QLTTModel())
                 {
-                    Thuoc temp = new Thuoc();
-                    int found = 0;
-                    foreach (Thuoc thuoc in dbcontext.Thuocs)
-                    {
-                        if (thuoc.MaThuoc == newThuoc.MaThuoc)
-                        {
-                            temp = thuoc;
-                            found++;
-                            break;
-                        }
-                    }
-                    if (found == 0)
+                    Thuoc temp = dbcontext.Thuocs.FirstOrDefault(thuoc => thuoc.MaThuoc == newThuoc.MaThuoc);
+                    if (temp == null)
                     {
                         dbcontext.Thuocs.Add(newThuoc);
                         dbcontext.SaveChanges();

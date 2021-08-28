@@ -144,7 +144,7 @@ namespace QLTT.Controls.Admin
                 cthd.MaHD = int.Parse( txtMaHD.Text);
                 cthd.MaThuoc = cbbMaThuoc.SelectedValue.ToString();
                 cthd.SoLuongMua = int.Parse(txtSoLuong.Text);
-                cthd.DonGia = int.Parse(txtDonGia.Text);
+                cthd.GiaTien = int.Parse(txtDonGia.Text);
                
               
                     if (_chiTietHoaDonBAL.LuuChiTietHoaDon(cthd, out error))
@@ -197,8 +197,7 @@ namespace QLTT.Controls.Admin
                     cthd.MaHD = int.Parse(txtMaHD.Text);
                     cthd.MaThuoc = cbbMaThuoc.SelectedValue.ToString();
                     cthd.SoLuongMua = int.Parse(txtSoLuong.Text);
-                    cthd.DonGia = int.Parse(txtDonGia.Text);
-                    cthd.Id = Id;
+                    cthd.GiaTien = int.Parse(txtDonGia.Text);
 
                    
                     if (_chiTietHoaDonBAL.LuuChiTietHoaDon(cthd, out error))
@@ -236,7 +235,6 @@ namespace QLTT.Controls.Admin
                 {
                     string error;
                     CTHD cthd = new CTHD();
-                    cthd.Id = Id;
                     if (_chiTietHoaDonBAL.xoaCTHD(cthd, out error))
                     {
                         MessageBox.Show("Xóa thành công!");

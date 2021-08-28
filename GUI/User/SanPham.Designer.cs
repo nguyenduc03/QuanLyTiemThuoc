@@ -361,7 +361,7 @@ namespace QLTT.Controls
             this.dgvDanhMucThuoc.AllowUserToDeleteRows = false;
             this.dgvDanhMucThuoc.AllowUserToResizeColumns = false;
             this.dgvDanhMucThuoc.AllowUserToResizeRows = false;
-            this.dgvDanhMucThuoc.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dgvDanhMucThuoc.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDanhMucThuoc.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvDanhMucThuoc.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvDanhMucThuoc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -376,15 +376,18 @@ namespace QLTT.Controls
             this.dgvDanhMucThuoc.Location = new System.Drawing.Point(5, 50);
             this.dgvDanhMucThuoc.Name = "dgvDanhMucThuoc";
             this.dgvDanhMucThuoc.ReadOnly = true;
+            this.dgvDanhMucThuoc.RowHeadersVisible = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue;
             this.dgvDanhMucThuoc.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDanhMucThuoc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhMucThuoc.Size = new System.Drawing.Size(790, 200);
             this.dgvDanhMucThuoc.TabIndex = 0;
-            this.dgvDanhMucThuoc.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDanhMucThuoc_RowHeaderMouseClick);
+            this.dgvDanhMucThuoc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMucThuoc_CellClick);
+            
             // 
             // errorProvider1
             // 
@@ -392,42 +395,38 @@ namespace QLTT.Controls
             // 
             // dgvMaThuoc
             // 
-            this.dgvMaThuoc.Frozen = true;
             this.dgvMaThuoc.HeaderText = "Mã Thuôc";
             this.dgvMaThuoc.Name = "dgvMaThuoc";
             this.dgvMaThuoc.ReadOnly = true;
-            this.dgvMaThuoc.Width = 80;
+            this.dgvMaThuoc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dgvTenThuoc
             // 
-            this.dgvTenThuoc.Frozen = true;
             this.dgvTenThuoc.HeaderText = "Tên Thuốc";
             this.dgvTenThuoc.Name = "dgvTenThuoc";
             this.dgvTenThuoc.ReadOnly = true;
-            this.dgvTenThuoc.Width = 200;
+            this.dgvTenThuoc.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dgvSoLuong
             // 
-            this.dgvSoLuong.Frozen = true;
             this.dgvSoLuong.HeaderText = "Số Lượng";
             this.dgvSoLuong.Name = "dgvSoLuong";
             this.dgvSoLuong.ReadOnly = true;
-            this.dgvSoLuong.Width = 110;
+            this.dgvSoLuong.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dgvDonGia
             // 
-            this.dgvDonGia.Frozen = true;
             this.dgvDonGia.HeaderText = "Đơn Giá";
             this.dgvDonGia.Name = "dgvDonGia";
             this.dgvDonGia.ReadOnly = true;
+            this.dgvDonGia.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dgvMoTa
             // 
-            this.dgvMoTa.Frozen = true;
             this.dgvMoTa.HeaderText = "Mô Tả";
             this.dgvMoTa.Name = "dgvMoTa";
             this.dgvMoTa.ReadOnly = true;
-            this.dgvMoTa.Width = 250;
+            this.dgvMoTa.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // SanPham
             // 

@@ -55,7 +55,6 @@
     <Compile Include="Enities\HoaDon.cs" />
     <Compile Include="Enities\NhanVien.cs" />
     <Compile Include="Enities\QLTTModel.cs" />
-    <Compile Include="Enities\sysdiagram.cs" />
     <Compile Include="Enities\Thuoc.cs" />
     <Compile Include="HoaDonDAL.cs" />
     <Compile Include="NhanVienDAL.cs" />
